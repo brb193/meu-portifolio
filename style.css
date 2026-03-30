@@ -55,3 +55,89 @@ body {
     border-radius: 8px;
     font-weight: bold;
 }
+.card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Efeito de gradiente na borda ao passar o mouse */
+.card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+/* Container para os botões (PDF e Redes Sociais) */
+.cta-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap; /* Para não quebrar no celular */
+}
+
+/* Estilo do Botão de PDF (Destaque) */
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.8rem 1.8rem;
+    background: var(--accent); /* O azul que definimos antes */
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Estilo do Botão Secundário (LinkedIn/GitHub) */
+.btn.secondary {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn.secondary:hover {
+    border-color: var(--accent);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+/* Seção de Títulos do Currículo */
+h2 {
+    font-size: 1.2rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Deixa o card de experiência mais largo e organizado */
+.card.wide {
+    text-align: left; /* Alinhamento à esquerda é melhor para leitura */
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.card.wide span {
+    font-size: 0.85rem;
+    color: #94a3b8; /* Cor cinza para a data */
+    font-weight: 500;
+}
