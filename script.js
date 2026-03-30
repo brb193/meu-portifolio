@@ -1,0 +1,14 @@
+// Inicializa os ícones do Lucide
+lucide.createIcons();
+
+// Efeito simples de hover nos cards para brilho dinâmico
+const cards = document.querySelectorAll('.card');
+cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+    });
+});
