@@ -1,143 +1,215 @@
 :root {
-    --bg: #0a0a0c;
-    --accent: #3b82f6;
-    --glass: rgba(255, 255, 255, 0.05);
+  --bg: #0a0a0c;
+  --accent: #3b82f6;
+  --glass: rgba(255, 255, 255, 0.05);
 }
 
 body {
-    background-color: var(--bg);
-    color: white;
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
+  background-color: var(--bg);
+  color: white;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;     /* Centraliza verticalmente */
+  min-height: 100vh;       /* Garante que o fundo ocupe toda a altura da tela */
+  width: 100%;
+  overflow-x: hidden;      /* Evita barra de rolagem lateral chata no celular */
 }
 
 .glass-container {
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 3rem;
-    border-radius: 24px;
-    max-width: 600px;
-    text-align: center;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;           /* Espaço interno para o texto não encostar na borda */
+  border-radius: 24px;
+  width: 90%;              /* No celular, ocupa 90% da largura */
+  max-width: 500px;        /* No PC, ele não fica largo demais */
+  margin: 2rem auto;       /* Margem de segurança em cima e embaixo */
+  box-sizing: border-box;  /* Garante que o padding não aumente o tamanho do container */
 }
 
-.highlight { color: var(--accent); }
+.highlight {
+  color: var(--accent);
+}
+
+header p {
+  text-align: justify;     /* Deixa o texto alinhado nos dois lados */
+  font-size: 0.95rem;
+  line-height: 1.6;        /* Aumenta o espaço entre as linhas para facilitar a leitura */
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+header h1 {
+  margin-bottom: 1rem;
+}
 
 .bento-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    margin: 2rem 0;
+  display: flex;
+  /* Mudamos de grid para flex */
+  flex-direction: column;
+  /* Força um embaixo do outro */
+  align-items: center;
+  /* Centraliza os cards */
+  gap: 1.5rem;
+  /* Espaço entre os elementos */
+  margin: 2rem 0;
+  width: 100%;
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 1.5rem;
-    border-radius: 16px;
-    transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+  width: 100%;
+  /* Garante que todos os cards tentem ocupar a largura disponível */
+  box-sizing: border-box;
+  /* Evita que o padding "estoure" a largura */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.08);
+/* Estilizando o link dentro do card de projeto */
+.project-card a {
+    display: block;          /* Transforma o link em um bloco para aceitar centralização */
+    text-align: center;      /* Centraliza o texto */
+    margin-top: 1.5rem;      /* Dá um espaço em relação ao texto acima */
+    color: var(--accent);    /* Usa o azul vibrante que você já tem */
+    text-decoration: none;   /* Remove o sublinhado padrão */
+    font-weight: bold;       /* Deixa o texto mais "forte" */
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    padding: 10px;           /* Aumenta a área de clique */
+    border: 1px dashed rgba(59, 130, 246, 0.3); /* Uma bordinha discreta */
+    border-radius: 8px;
+}
+
+.project-card a:hover {
+    background: rgba(59, 130, 246, 0.1); /* Um brilho suave de fundo */
+    letter-spacing: 1px;                 /* O link "abre" um pouquinho, dá um charme */
+    border-color: var(--accent);
 }
 
 .btn {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: var(--accent);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
 }
+
 .card {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Efeito de gradiente na borda ao passar o mouse */
 .card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
 }
 
 h2 {
-    font-size: 1.5rem;
-    margin-top: 2rem;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
+
 /* Container para os botões (PDF e Redes Sociais) */
 .cta-container {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-    flex-wrap: wrap; /* Para não quebrar no celular */
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+  /* Para não quebrar no celular */
 }
 
 /* Estilo do Botão de PDF (Destaque) */
 .btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0.8rem 1.8rem;
-    background: var(--accent); /* O azul que definimos antes */
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.8rem 1.8rem;
+  background: var(--accent);
+  /* O azul que definimos antes */
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
 }
 
 /* Estilo do Botão Secundário (LinkedIn/GitHub) */
 .btn.secondary {
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn.secondary:hover {
-    border-color: var(--accent);
-    background: rgba(59, 130, 246, 0.1);
+  border-color: var(--accent);
+  background: rgba(59, 130, 246, 0.1);
 }
 
 /* Seção de Títulos do Currículo */
 h2 {
-    font-size: 1.2rem;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    display: inline-block;
-    padding-bottom: 5px;
+  font-size: 1.2rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
 /* Deixa o card de experiência mais largo e organizado */
 .card.wide {
-    text-align: left; /* Alinhamento à esquerda é melhor para leitura */
-    width: 100%;
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  text-align: left;
+  /* Alinhamento à esquerda é melhor para leitura */
+  width: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .card.wide span {
-    font-size: 0.85rem;
-    color: #94a3b8; /* Cor cinza para a data */
-    font-weight: 500;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  /* Cor cinza para a data */
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem; /* Diminui um pouco o título para não quebrar linha feio */
+  }
+
+  .cta-container {
+    flex-direction: column; /* Empilha os botões (PDF e LinkedIn) no celular */
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%; /* Botões ocupam a largura toda para facilitar o toque */
+    justify-content: center;
+  }
+  
+  .card {
+    padding: 1rem; /* Reduz o padding interno dos cards no mobile */
+  }
 }
