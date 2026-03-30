@@ -2,6 +2,13 @@
   --bg: #0a0a0c;
   --accent: #3b82f6;
   --glass: rgba(255, 255, 255, 0.05);
+  --text-secondary: #94a3b8;
+}
+
+/* 1. Reset e Base */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Evita que a nav cubra o título ao scrollar */
 }
 
 body {
@@ -11,205 +18,274 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center;     /* Centraliza verticalmente */
-  min-height: 100vh;       /* Garante que o fundo ocupe toda a altura da tela */
+  flex-direction: column; /* Organiza nav e main verticalmente */
+  align-items: center;
+  min-height: 100vh;
   width: 100%;
-  overflow-x: hidden;      /* Evita barra de rolagem lateral chata no celular */
+  overflow-x: hidden;
 }
 
+/* 2. Barra de Navegação (Tabs) */
+.nav-tabs {
+  position: sticky;
+  top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.8); /* Fundo escuro levemente transparente */
+  backdrop-filter: blur(12px);
+  padding: 8px;
+  border-radius: 16px;
+  margin: 20px auto;
+  z-index: 1000;
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-secondary);
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.7rem;
+  min-width: 60px;
+}
+
+.tab-item i {
+  margin-bottom: 4px;
+  width: 18px;
+  height: 18px;
+}
+
+.tab-item:hover, .tab-item.active {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* 3. Container Principal */
 .glass-container {
   background: var(--glass);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2rem;           /* Espaço interno para o texto não encostar na borda */
+  padding: 2rem;
   border-radius: 24px;
-  width: 90%;              /* No celular, ocupa 90% da largura */
-  max-width: 500px;        /* No PC, ele não fica largo demais */
-  margin: 2rem auto;       /* Margem de segurança em cima e embaixo */
-  box-sizing: border-box;  /* Garante que o padding não aumente o tamanho do container */
+  width: 90%;
+  max-width: 550px;
+  margin-bottom: 4rem; /* Espaço no final da página */
+  box-sizing: border-box;
 }
 
+/* 4. Tipografia */
 .highlight {
   color: var(--accent);
 }
 
-header p {
-  text-align: justify;     /* Deixa o texto alinhado nos dois lados */
-  font-size: 0.95rem;
-  line-height: 1.6;        /* Aumenta o espaço entre as linhas para facilitar a leitura */
-  margin-bottom: 2rem;
-  opacity: 0.9;
-}
-
 header h1 {
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.bento-grid {
+header p {
+  text-align: justify;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  color: #cbd5e1;
+}
+
+h2 {
+  font-size: 1.2rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 2.5rem 0 1.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* 5. Cards e Layout (Bento/List) */
+.bento-grid, .experience-section, .projects-section {
   display: flex;
-  /* Mudamos de grid para flex */
   flex-direction: column;
-  /* Força um embaixo do outro */
-  align-items: center;
-  /* Centraliza os cards */
-  gap: 1.5rem;
-  /* Espaço entre os elementos */
-  margin: 2rem 0;
+  gap: 1rem;
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 .card {
   background: rgba(255, 255, 255, 0.03);
   padding: 1.5rem;
   border-radius: 16px;
-  transition: transform 0.3s ease;
-  width: 100%;
-  /* Garante que todos os cards tentem ocupar a largura disponível */
-  box-sizing: border-box;
-  /* Evita que o padding "estoure" a largura */
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Estilizando o link dentro do card de projeto */
-.project-card a {
-    display: block;          /* Transforma o link em um bloco para aceitar centralização */
-    text-align: center;      /* Centraliza o texto */
-    margin-top: 1.5rem;      /* Dá um espaço em relação ao texto acima */
-    color: var(--accent);    /* Usa o azul vibrante que você já tem */
-    text-decoration: none;   /* Remove o sublinhado padrão */
-    font-weight: bold;       /* Deixa o texto mais "forte" */
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    padding: 10px;           /* Aumenta a área de clique */
-    border: 1px dashed rgba(59, 130, 246, 0.3); /* Uma bordinha discreta */
-    border-radius: 8px;
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
 }
 
-.project-card a:hover {
-    background: rgba(59, 130, 246, 0.1); /* Um brilho suave de fundo */
-    letter-spacing: 1px;                 /* O link "abre" um pouquinho, dá um charme */
-    border-color: var(--accent);
+.card.wide {
+  text-align: left;
+}
+
+.card span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* 6. Links de Projetos */
+.project-link {
+  display: block;
+  text-align: center;
+  margin-top: 1.2rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 10px;
+  border: 1px dashed rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: var(--accent);
+}
+
+/* 7. Botões e Rodapé */
+.cta-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
 }
 
 .btn {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   padding: 0.8rem 1.5rem;
   background: var(--accent);
   color: white;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-}
-
-.card {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Efeito de gradiente na borda ao passar o mouse */
-.card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
-}
-
-h2 {
-  font-size: 1.5rem;
-  margin-top: 2rem;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-/* Container para os botões (PDF e Redes Sociais) */
-.cta-container {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-  flex-wrap: wrap;
-  /* Para não quebrar no celular */
-}
-
-/* Estilo do Botão de PDF (Destaque) */
-.btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0.8rem 1.8rem;
-  background: var(--accent);
-  /* O azul que definimos antes */
-  color: white;
-  text-decoration: none;
   border-radius: 10px;
   font-weight: 600;
+  font-size: 0.9rem;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  flex: 1 1 140px; /* Faz os botões crescerem igualmente */
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+  filter: brightness(1.1);
 }
 
-/* Estilo do Botão Secundário (LinkedIn/GitHub) */
 .btn.secondary {
   background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn.secondary:hover {
   border-color: var(--accent);
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(59, 130, 246, 0.05);
 }
 
-/* Seção de Títulos do Currículo */
-h2 {
-  font-size: 1.2rem;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  display: inline-block;
-  padding-bottom: 5px;
-}
-
-/* Deixa o card de experiência mais largo e organizado */
-.card.wide {
-  text-align: left;
-  /* Alinhamento à esquerda é melhor para leitura */
-  width: 100%;
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.card.wide span {
-  font-size: 0.85rem;
-  color: #94a3b8;
-  /* Cor cinza para a data */
-  font-weight: 500;
-}
-
+/* 8. Responsividade (Mobile) */
 @media (max-width: 480px) {
-  h1 {
-    font-size: 1.8rem; /* Diminui um pouco o título para não quebrar linha feio */
+  .nav-tabs {
+    width: 95%;
+    top: 10px;
+    padding: 5px;
+  }
+  
+  .tab-item {
+    min-width: 50px;
+    font-size: 0.65rem;
+    padding: 6px;
+  }
+
+  .glass-container {
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
   }
 
   .cta-container {
-    flex-direction: column; /* Empilha os botões (PDF e LinkedIn) no celular */
-    width: 100%;
+    flex-direction: column;
   }
 
   .btn {
-    width: 100%; /* Botões ocupam a largura toda para facilitar o toque */
-    justify-content: center;
-  }
-  
-  .card {
-    padding: 1rem; /* Reduz o padding interno dos cards no mobile */
+    width: 100%;
   }
 }
+
+/* O "brilho" que segue o mouse dentro do card */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        600px circle at var(--mouse-x) var(--mouse-y), 
+        rgba(59, 130, 246, 0.1), 
+        transparent 40%
+    );
+    z-index: 0;
+    pointer-events: none; /* Garante que o brilho não atrapalhe cliques em links */
+    transition: opacity 0.5s;
+    opacity: 0;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* Garante que o conteúdo do card fique acima do brilho */
+.card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilo do texto que será digitado */
+#typewriter {
+    color: var(--accent); /* Cor azul */
+    font-weight: bold;
+    display: inline-block;
+    min-height: 1.2em; /* Evita que o layout "pule" */
+}
+
+/* O cursor piscando (|) */
+/*#typewriter::after {
+    content: "|";
+    margin-left: 5px;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}*/ 
