@@ -10,6 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
@@ -29,6 +31,9 @@
 
     <section id="personal-info" class="section-content active">
       <header>
+        <div class="profile-photo-container">
+          <img src="perfil.jpeg" alt="Foto de Victor Galvão" class="profile-photo">
+        </div>
         <h1>Olá, eu sou <span class="highlight">Victor Galvão</span></h1>
         <h3 id="typewriter"></h3>
         <br>
@@ -46,7 +51,7 @@
           <a href="https://github.com/brb193" target="_blank" class="btn btn-blue">
             <i data-lucide="github"></i> GitHub
           </a>
-          <a href="https://linkedin.com/in/victor-galvao" target="_blank" class="btn btn-dark">
+          <a href="https://www.linkedin.com/in/victor-galv%C3%A3o193/" target="_blank" class="btn btn-dark">
             <i data-lucide="linkedin"></i> LinkedIn
           </a>
 
@@ -62,22 +67,30 @@
 
     <section id="skills" class="section-content bento-grid">
       <h2>Habilidades</h2>
-      <div class="card">
+
+      <div class="card skill-category" data-category="backend">
         <i data-lucide="code-2"></i>
-        <h3>Backend</h3>
-        <p>PHP (Laravel), REST APIs, SQL, Python, HTML, CSS, Power BI</p>
+        <h3>Backend & Dados</h3>
+        <p>PHP (Laravel), Python, REST APIs, SQL, Power BI</p>
       </div>
 
-      <div class="card">
+      <div class="card skill-category" data-category="cloud">
         <i data-lucide="cloud"></i>
-        <h3>IT Admin</h3>
-        <p>Google Workspace Admin & Automação</p>
+        <h3>Cloud & IT Admin</h3>
+        <p>Monitoramento, Google Workspace Admin & Automação</p>
       </div>
 
-      <div class="card">
-        <i data-lucide="trophy"></i>
-        <h3>Interesses</h3>
-        <p>Jogos, Esportes & Tecnologia</p>
+      <div class="card skill-category" data-category="frontend">
+        <i data-lucide="layout"></i>
+        <h3>Frontend</h3>
+        <p>HTML, CSS, Integração de APIs e Bibliotecas</p>
+      </div>
+
+      <div class="card radar-card">
+        <h3>Mapeamento de Competências</h3>
+        <div class="radar-container">
+          <canvas id="skillsRadar"></canvas>
+        </div>
       </div>
     </section>
 
@@ -99,7 +112,7 @@
       <div class="card project-card">
         <h3>Sistema de Gestão Leiteira / Web Pets</h3>
         <p>Aplicações focadas em resolver problemas reais com PHP e lógica de engenharia.</p>
-        <a href="https://github.com/brb193" class="project-link">Ver no GitHub →</a>
+        <a href="https://github.com/brb193" target="_blank" class="project-link">Ver no GitHub →</a>
       </div>
     </section>
 

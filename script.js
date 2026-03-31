@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
+  // --- Variável Global para o Gráfico ---
+  let radarChartInstance = null;
+
   // 2. Lógica das Abas e Indicador Deslizante
   const tabs = document.querySelectorAll('.tab-item');
   const sections = document.querySelectorAll('.section-content');
@@ -16,10 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Inicializa o indicador na aba ativa ao carregar
   const activeTab = document.querySelector('.tab-item.active');
   if (activeTab) {
-    // Timeout pequeno para garantir que o navegador calculou as larguras corretamente
     setTimeout(() => updateIndicator(activeTab), 100);
   }
 
@@ -27,11 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
     tab.addEventListener('click', function (e) {
       e.preventDefault();
 
-      // Atualiza classes das abas
       tabs.forEach(t => t.classList.remove('active'));
       this.classList.add('active');
 
-      // Atualiza visibilidade das seções
       sections.forEach(s => s.classList.remove('active'));
       const targetId = this.getAttribute('href').replace('#', '');
       const targetSection = document.getElementById(targetId);
@@ -39,8 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
         targetSection.classList.add('active');
       }
 
-      // Move o indicador deslizante
       updateIndicator(this);
+
+      // Se a aba Habilidades foi clicada, renderiza o gráfico Geral
+      if (targetId === 'skills') {
+        // Limpa qualquer card que tenha ficado ativo
+        document.querySelectorAll('.skill-category').forEach(c => c.classList.remove('active-card'));
+        setTimeout(() => renderSkillsChart('geral'), 100);
+      }
     });
   });
 
@@ -91,13 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let animationId;
     const mouse = { x: null, y: null, radius: 150 };
 
-    // Otimização de redimensionamento
     let resizeTimeout;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
         init();
-        // Reposiciona o indicador da nav se o tamanho da tela mudar
         const active = document.querySelector('.tab-item.active');
         updateIndicator(active);
       }, 200);
@@ -175,7 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
       animationId = requestAnimationFrame(animate);
     }
 
-    // Visibilidade da Aba (Pausa o canvas para economizar bateria)
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) {
         cancelAnimationFrame(animationId);
@@ -187,4 +189,105 @@ document.addEventListener('DOMContentLoaded', () => {
     init();
     animate();
   }
+
+  // 5. Lógica Interativa do Gráfico de Radar (Chart.js)
+  const chartDataConfig = {
+    geral: {
+      labels: ['Backend (PHP/Python)', 'Banco de Dados (SQL)', 'Cloud/Infra', 'Frontend (HTML/CSS)', 'Análise (Power BI)'],
+      data: [85, 80, 85, 65, 75]
+    },
+    backend: {
+      labels: ['PHP (Laravel)', 'Python', 'REST APIs', 'Modelagem SQL', 'Análise de Dados'],
+      data: [90, 80, 85, 85, 75]
+    },
+    cloud: {
+      labels: ['Monitoramento', 'G. Workspace Admin', 'Automação', 'Segurança', 'Redes Básicas'],
+      data: [85, 90, 75, 80, 65]
+    },
+    frontend: {
+      labels: ['HTML5', 'CSS3', 'Integração de APIs', 'Responsividade', 'UI/UX Design'],
+      data: [80, 75, 70, 85, 60]
+    }
+  };
+
+  function renderSkillsChart(category = 'geral') {
+    const chartCanvas = document.getElementById('skillsRadar');
+    if (!chartCanvas) return;
+
+    if (radarChartInstance) {
+      radarChartInstance.destroy();
+    }
+
+    const ctx = chartCanvas.getContext('2d');
+    const colorBlue = 'rgba(54, 162, 235, 1)';
+    const colorBlueBg = 'rgba(54, 162, 235, 0.3)';
+    const colorGrid = 'rgba(150, 150, 150, 0.2)';
+    const colorText = '#888888';
+
+    const currentData = chartDataConfig[category];
+
+    radarChartInstance = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: currentData.labels,
+        datasets: [{
+          label: 'Nível de Domínio (%)',
+          data: currentData.data,
+          backgroundColor: colorBlueBg,
+          borderColor: colorBlue,
+          pointBackgroundColor: colorBlue,
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: colorBlue,
+          borderWidth: 2,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            bodyFont: { family: "'Inter', sans-serif" }
+          }
+        },
+        scales: {
+          r: {
+            angleLines: { color: colorGrid },
+            grid: { color: colorGrid },
+            pointLabels: {
+              color: colorText,
+              font: { family: "'Inter', sans-serif", size: 10, weight: '600' }
+            },
+            ticks: {
+              display: false,
+              min: 0,
+              max: 100,
+              stepSize: 20
+            }
+          }
+        }
+      }
+    });
+  }
+
+  // Event Listeners para os Cards de Habilidades
+  const skillCards = document.querySelectorAll('.skill-category');
+  
+  skillCards.forEach(card => {
+    card.addEventListener('click', () => {
+      if (card.classList.contains('active-card')) {
+        card.classList.remove('active-card');
+        renderSkillsChart('geral');
+      } else {
+        skillCards.forEach(c => c.classList.remove('active-card'));
+        card.classList.add('active-card');
+        
+        const category = card.getAttribute('data-category');
+        renderSkillsChart(category);
+      }
+    });
+  });
+
 });

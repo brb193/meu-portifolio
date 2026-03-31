@@ -31,20 +31,14 @@ body {
   top: 20px;
   display: flex;
   align-items: center;
-  
-  /* MUDANÇA AQUI: Distribui os ícones com espaço igual entre eles */
   justify-content: space-around; 
-  
   background: var(--nav-bg);
   backdrop-filter: blur(12px);
-  padding: 8px 15px; /* Um pouco mais de respiro nas laterais */
+  padding: 8px 15px;
   border-radius: 16px;
   z-index: 1000;
-  
-  /* Define uma largura fixa ou máxima para a barra não ficar esticada demais no PC */
   width: 90%;
   max-width: 400px; 
-  
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
@@ -105,7 +99,6 @@ body {
     opacity: 0;
     transform: translateY(10px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -141,14 +134,12 @@ h3 {
 /* 5. OS BOTÕES (ESTILO DIAGONAL / 2x2) */
 .cta-container {
   display: grid;
-  /* Cria duas colunas com o mesmo tamanho */
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   margin-top: 2.5rem;
   width: 100%;
 }
 
-/* Estilo Base dos Botões */
 main footer .cta-container a.btn {
   display: inline-flex;
   align-items: center;
@@ -164,22 +155,18 @@ main footer .cta-container a.btn {
   border: 1px solid transparent;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
-  /* Ocupa o espaço da célula do grid */
 }
 
-/* BOTÕES COM COR (Azul) */
 .btn-blue {
   background-color: var(--accent) !important;
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
 }
 
-/* BOTÕES SEM COR (Transparentes/Escuros) */
 .btn-dark {
   background-color: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Efeito Hover */
 main footer .cta-container a.btn:hover {
   transform: translateY(-3px);
   filter: brightness(1.2);
@@ -224,6 +211,109 @@ main footer .cta-container a.btn:hover {
   main footer .cta-container a.btn {
     width: 100%;
   }
+}
 
-  /* Botões ocupam largura toda no celular */
+/* 8. BENTO GRID & RADAR CHART */
+.bento-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+/* Garante que o grid só seja aplicado quando a aba estiver ativa */
+/* Usamos Flexbox em coluna para empilhar tudo um debaixo do outro */
+.section-content.bento-grid.active {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bento-grid .card {
+  margin-bottom: 0;
+}
+
+.radar-card {
+  grid-column: 1 / -1; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.radar-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 300px; 
+  margin-top: 1rem;
+}
+
+/* 9. CARDS INTERATIVOS (HABILIDADES) */
+.skill-category {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-3px);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.skill-category.active-card {
+  border-color: var(--accent);
+  background: rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+/* 10. FOTO DE PERFIL (SOBRE) */
+
+/* Centraliza o container da foto e dá espaçamento para o texto abaixo */
+.profile-photo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.profile-photo {
+  /* Tamanho da foto (ajuste se achar necessário) */
+  width: 150px;
+  height: 150px;
+  
+  /* Deixa redonda */
+  border-radius: 50%;
+  
+  /* Garante que a imagem preencha o círculo sem distorcer */
+  object-fit: cover;
+  
+  object-position: center;
+  /* Estilo da Borda: Dupla camada para efeito Glassmorphism */
+  /* Uma borda fina branca translúcida por dentro... */
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  /* ...e uma linha de destaque azul por fora (outline) */
+  outline: 2px solid var(--accent);
+  
+  /* Efeito de brilho externo azul (Glow) */
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+  
+  /* Transição suave para o efeito de hover */
+  transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse na foto */
+.profile-photo:hover {
+  transform: scale(1.05); /* Aumenta levemente */
+  box-shadow: 0 0 45px rgba(59, 130, 246, 0.5); /* Aumenta o brilho */
+}
+
+/* Ajuste para garantir que o texto do header fique centralizado com a foto */
+#personal-info header {
+  text-align: center;
+}
+
+.profile-photo {
+  /* ... mantenha todas as propriedades anteriores ... */
+  
+  /* Melhora a nitidez em imagens redimensionadas */
+  image-rendering: -webkit-optimize-contrast; /* Para Safari/Chrome */
+  image-rendering: crisp-edges; /* Para Firefox e outros navegadores */
 }
