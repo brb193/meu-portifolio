@@ -6,6 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio | Victor Galvão</title>
 
+  <meta name="description" content="Portfólio de Victor Galvão: Desenvolvedor Backend (PHP/Python), focado em Cloud, Infraestrutura e Engenharia de Software.">
+  <meta name="keywords" content="Victor Galvão, Software Engineer, Backend, PHP, Laravel, Python, Cloud, Nexxt Cloud, UTFPR">
+  <meta name="author" content="Victor Galvão">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brb193.github.io/"> 
+  <meta property="og:title" content="Victor Galvão | Software Engineer">
+  <meta property="og:description" content="Explorando a intersecção entre Backend estável e Infraestrutura Cloud escalável.">
+  <meta property="og:image" content="https://brb193.github.io/perfil400x400.png">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Victor Galvão | Software Engineer">
+  <meta property="twitter:image" content="https://brb193.github.io/perfil400x400.png">
+
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -18,12 +32,11 @@
 <body>
   <canvas id="bg-canvas"></canvas>
 
-  <nav class="nav-tabs">
+  <nav class="nav-tabs" aria-label="Navegação principal">
     <a href="#personal-info" class="tab-item active"><i data-lucide="user"></i><span>Sobre</span></a>
     <a href="#skills" class="tab-item"><i data-lucide="flask-conical"></i><span>Habilidades</span></a>
     <a href="#experience" class="tab-item"><i data-lucide="briefcase"></i><span>Experiência</span></a>
     <a href="#projects" class="tab-item"><i data-lucide="layers"></i><span>Projetos</span></a>
-
     <div class="nav-indicator"></div>
   </nav>
 
@@ -42,23 +55,20 @@
           Python e PHP. Experiente na criação de sistemas web e modelagem
           de dados, trago um diferencial estratégico: expertise em monitoramento
           de infraestrutura e segurança Cloud (Google Workspace Enterprise).
-          Busco integrar times de desenvolvimento onde a qualidade do código
-          e a performance do sistema sejam prioridades.
         </p>
       </header>
       <footer>
         <div class="cta-container">
-          <a href="https://github.com/brb193" target="_blank" class="btn btn-blue">
+          <a href="https://github.com/brb193" target="_blank" class="btn btn-blue" aria-label="GitHub">
             <i data-lucide="github"></i> GitHub
           </a>
-          <a href="https://www.linkedin.com/in/victor-galv%C3%A3o193/" target="_blank" class="btn btn-dark">
+          <a href="https://www.linkedin.com/in/victor-galv%C3%A3o193/" target="_blank" class="btn btn-dark" aria-label="LinkedIn">
             <i data-lucide="linkedin"></i> LinkedIn
           </a>
-
-          <a href="https://wa.me/5512988556257" target="_blank" class="btn btn-dark">
+          <a href="https://wa.me/5512988556257" target="_blank" class="btn btn-dark" aria-label="WhatsApp">
             <i data-lucide="message-circle"></i> WhatsApp
           </a>
-          <a href="curriculo-victor-galvao.pdf" download class="btn btn-blue">
+          <a href="curriculo-victor-galvao.pdf" download class="btn btn-blue" aria-label="Baixar Currículo">
             <i data-lucide="download"></i> Currículo
           </a>
         </div>
@@ -68,19 +78,19 @@
     <section id="skills" class="section-content bento-grid">
       <h2>Habilidades</h2>
 
-      <div class="card skill-category" data-category="backend">
+      <div class="card skill-category">
         <i data-lucide="code-2"></i>
         <h3>Backend & Dados</h3>
         <p>PHP (Laravel), Python, REST APIs, SQL, Power BI</p>
       </div>
 
-      <div class="card skill-category" data-category="cloud">
+      <div class="card skill-category">
         <i data-lucide="cloud"></i>
         <h3>Cloud & IT Admin</h3>
         <p>Monitoramento, Google Workspace Admin & Automação</p>
       </div>
 
-      <div class="card skill-category" data-category="frontend">
+      <div class="card skill-category">
         <i data-lucide="layout"></i>
         <h3>Frontend</h3>
         <p>HTML, CSS, Integração de APIs e Bibliotecas</p>
@@ -113,6 +123,11 @@
         <h3>Sistema de Gestão Leiteira / Web Pets</h3>
         <p>Aplicações focadas em resolver problemas reais com PHP e lógica de engenharia.</p>
         <a href="https://github.com/brb193/producao" target="_blank" class="project-link">Ver no GitHub →</a>
+      </div>
+      <div class="card project-card">
+        <h3>Monitoramento de Infra</h3>
+        <p>Configuração de monitoramento para servidores, sites e Google Workspace.</p>
+        <a href="https://github.com/brb193/monitoramento" target="_blank" class="project-link">Ver no GitHub →</a>
       </div>
     </section>
 
