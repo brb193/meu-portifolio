@@ -186,6 +186,40 @@ main footer .cta-container a.btn:hover {
   font-weight: bold;
 }
 
+/* 6. Links de Projetos (Estilo Clean) */
+.project-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--accent) !important; /* Força o azul #3b82f6 */
+    text-decoration: none !important; /* Tira o sublinhado */
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+    position: relative;
+}
+
+/* Efeito de linha que aparece no hover */
+.project-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.project-link:hover {
+    letter-spacing: 0.5px; /* Leve expansão ao passar o mouse */
+    opacity: 0.8;
+}
+
+.project-link:hover::after {
+    width: 100%;
+}
+
 /* 7. RESPONSIVIDADE */
 @media (max-width: 480px) {
   .nav-tabs {
