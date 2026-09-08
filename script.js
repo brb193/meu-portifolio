@@ -1,293 +1,431 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. Inicializa Ícones
-  if (typeof lucide !== 'undefined') {
-    lucide.createIcons();
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.documentElement;
+  const header = document.querySelector("[data-header]");
+  const navToggle = document.querySelector(".nav-toggle");
+  const navPanel = document.querySelector(".nav-panel");
+  const navLinks = Array.from(document.querySelectorAll(".nav-link"));
+  const themeToggle = document.querySelector("[data-theme-toggle]");
+  const yearSlot = document.querySelector("[data-current-year]");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const sections = Array.from(document.querySelectorAll("main section[id]"));
+  const resumeDialog = document.querySelector("[data-resume-dialog]");
+  const resumeOpeners = Array.from(document.querySelectorAll("[data-resume-open]"));
+  const resumeClosers = Array.from(document.querySelectorAll("[data-resume-close]"));
+  const contactDialog = document.querySelector("[data-contact-dialog]");
+  const contactOpeners = Array.from(document.querySelectorAll("[data-contact-open]"));
+  const contactClosers = Array.from(document.querySelectorAll("[data-contact-close]"));
+  const contactCopyButtons = Array.from(document.querySelectorAll("[data-copy-email]"));
+  const contactCopyStatus = document.querySelector("[data-copy-status]");
+  const projectLightbox = document.querySelector("[data-project-lightbox]");
+  const projectLightboxTitle = document.querySelector("[data-project-lightbox-title]");
+  const projectLightboxImage = document.querySelector("[data-project-lightbox-image]");
+  const projectLightboxOpeners = Array.from(document.querySelectorAll("[data-project-lightbox-open]"));
+  const projectLightboxClosers = Array.from(document.querySelectorAll("[data-project-lightbox-close]"));
+  const focusableSelector = [
+    "a[href]",
+    "button:not([disabled])",
+    "textarea:not([disabled])",
+    "input:not([disabled])",
+    "select:not([disabled])",
+    "object",
+    "[tabindex]:not([tabindex='-1'])"
+  ].join(",");
+  let scrollTicking = false;
+  let lastDialogTrigger = null;
 
-  // --- Variável Global para o Gráfico ---
-  let radarChartInstance = null;
-
-  // 2. Lógica das Abas e Indicador Deslizante
-  const tabs = document.querySelectorAll('.tab-item');
-  const sections = document.querySelectorAll('.section-content');
-  const indicator = document.querySelector('.nav-indicator');
-
-  function updateIndicator(el) {
-    if (indicator && el) {
-      indicator.style.width = `${el.offsetWidth}px`;
-      indicator.style.left = `${el.offsetLeft}px`;
-    }
-  }
-
-  const activeTab = document.querySelector('.tab-item.active');
-  if (activeTab) {
-    setTimeout(() => updateIndicator(activeTab), 100);
-  }
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', function (e) {
-      e.preventDefault();
-
-      tabs.forEach(t => t.classList.remove('active'));
-      this.classList.add('active');
-
-      sections.forEach(s => s.classList.remove('active'));
-      const targetId = this.getAttribute('href').replace('#', '');
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        targetSection.classList.add('active');
-      }
-
-      updateIndicator(this);
-
-      // Se a aba Habilidades foi clicada, renderiza o gráfico Geral
-      if (targetId === 'skills') {
-        // Limpa qualquer card que tenha ficado ativo
-        document.querySelectorAll('.skill-category').forEach(c => c.classList.remove('active-card'));
-        setTimeout(() => renderSkillsChart('geral'), 100);
-      }
-    });
-  });
-
-  // 3. Lógica da Máquina de Escrever
-  const textElement = document.getElementById('typewriter');
-  const phrases = [
-    "Desenvolvedor Backend (PHP & Python)",
-    "Engenheiro de Software",
-    "Analista de Suporte Cloud"
-  ];
-
-  let phraseIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-
-  function typeEffect() {
-    if (!textElement) return;
-    const currentPhrase = phrases[phraseIndex];
-
-    if (isDeleting) {
-      textElement.textContent = currentPhrase.substring(0, charIndex - 1);
-      charIndex--;
-    } else {
-      textElement.textContent = currentPhrase.substring(0, charIndex + 1);
-      charIndex++;
-    }
-
-    let typeSpeed = isDeleting ? 50 : 100;
-
-    if (!isDeleting && charIndex === currentPhrase.length) {
-      isDeleting = true;
-      typeSpeed = 2000;
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      typeSpeed = 500;
-    }
-
-    setTimeout(typeEffect, typeSpeed);
-  }
-  typeEffect();
-
-  // 4. Lógica do Canvas (Fundo de Constelação)
-  const canvas = document.getElementById('bg-canvas');
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationId;
-    const mouse = { x: null, y: null, radius: 150 };
-
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        init();
-        const active = document.querySelector('.tab-item.active');
-        updateIndicator(active);
-      }, 200);
-    });
-
-    window.addEventListener('mousemove', (e) => {
-      mouse.x = e.x;
-      mouse.y = e.y;
-    });
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
-      }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.x > canvas.width) this.x = 0;
-        else if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        else if (this.y < 0) this.y = canvas.height;
-      }
-
-      draw() {
-        ctx.fillStyle = 'rgba(59, 130, 246, 0.5)';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    function init() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      particles = [];
-      let numberOfParticles = (window.innerWidth < 768) ? 40 : 80;
-      for (let i = 0; i < numberOfParticles; i++) {
-        particles.push(new Particle());
-      }
-    }
-
-    function connect() {
-      for (let a = 0; a < particles.length; a++) {
-        for (let b = a; b < particles.length; b++) {
-          let dx = particles[a].x - particles[b].x;
-          let dy = particles[a].y - particles[b].y;
-          let distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 150) {
-            let opacity = 1 - (distance / 150);
-            ctx.strokeStyle = `rgba(59, 130, 246, ${opacity * 0.2})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particles[a].x, particles[a].y);
-            ctx.lineTo(particles[b].x, particles[b].y);
-            ctx.stroke();
-          }
-        }
-      }
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        p.update();
-        p.draw();
-      });
-      connect();
-      animationId = requestAnimationFrame(animate);
-    }
-
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden) {
-        cancelAnimationFrame(animationId);
-      } else {
-        animate();
-      }
-    });
-
-    init();
-    animate();
-  }
-
-  // 5. Lógica Interativa do Gráfico de Radar (Chart.js)
-  const chartDataConfig = {
-    geral: {
-      labels: ['Backend (PHP/Python)', 'Banco de Dados (SQL)', 'Cloud/Infra', 'Frontend (HTML/CSS)', 'Análise (Power BI)'],
-      data: [85, 80, 85, 65, 75]
-    },
-    backend: {
-      labels: ['PHP (Laravel)', 'Python', 'REST APIs', 'Modelagem SQL', 'Análise de Dados'],
-      data: [90, 80, 85, 85, 75]
-    },
-    cloud: {
-      labels: ['Monitoramento', 'G. Workspace Admin', 'Automação', 'Segurança', 'Redes Básicas'],
-      data: [85, 90, 75, 80, 65]
-    },
-    frontend: {
-      labels: ['HTML5', 'CSS3', 'Integração de APIs', 'Responsividade', 'UI/UX Design'],
-      data: [80, 75, 70, 85, 60]
+  const renderIcons = () => {
+    if (window.lucide) {
+      window.lucide.createIcons();
     }
   };
 
-  function renderSkillsChart(category = 'geral') {
-    const chartCanvas = document.getElementById('skillsRadar');
-    if (!chartCanvas) return;
+  const hydrateProjectPreviews = () => {
+    const previews = Array.from(document.querySelectorAll("[data-preview-src][data-preview-ready='true']:not(.has-image)"));
 
-    if (radarChartInstance) {
-      radarChartInstance.destroy();
+    previews.forEach((preview) => {
+      const src = preview.getAttribute("data-preview-src");
+      if (!src) return;
+
+      const image = new Image();
+      image.className = "project-preview-image";
+      image.alt = preview.getAttribute("data-preview-alt") || "";
+      image.decoding = "async";
+
+      image.addEventListener("load", () => {
+        const placeholder = preview.querySelector(".project-preview-placeholder");
+        if (placeholder) {
+          placeholder.setAttribute("aria-hidden", "true");
+        }
+
+        window.requestAnimationFrame(() => {
+          preview.classList.add("has-image");
+        });
+      }, { once: true });
+
+      image.addEventListener("error", () => {
+        image.remove();
+        preview.classList.add("is-placeholder");
+      }, { once: true });
+
+      preview.prepend(image);
+      image.src = src;
+    });
+  };
+
+  const setHeaderState = () => {
+    if (!header) return;
+    header.classList.toggle("is-scrolled", window.scrollY > 12);
+  };
+
+  const closeMenu = () => {
+    if (!navToggle || !navPanel || !header) return;
+    navToggle.setAttribute("aria-expanded", "false");
+    navPanel.classList.remove("is-open");
+    header.classList.remove("menu-visible");
+    document.body.classList.remove("menu-open");
+  };
+
+  const toggleMenu = () => {
+    if (!navToggle || !navPanel || !header) return;
+    const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", String(!isOpen));
+    navPanel.classList.toggle("is-open", !isOpen);
+    header.classList.toggle("menu-visible", !isOpen);
+    document.body.classList.toggle("menu-open", !isOpen);
+  };
+
+  const syncDialogBodyState = () => {
+    const hasOpenDialog = Boolean(document.querySelector(".portfolio-dialog[open]"));
+    document.body.classList.toggle("dialog-open", hasOpenDialog);
+  };
+
+  const restoreDialogFocus = () => {
+    syncDialogBodyState();
+
+    const trigger = lastDialogTrigger;
+    lastDialogTrigger = null;
+
+    if (trigger && typeof trigger.focus === "function" && document.contains(trigger)) {
+      trigger.focus({ preventScroll: true });
+      window.requestAnimationFrame(() => {
+        if (document.contains(trigger)) {
+          trigger.focus({ preventScroll: true });
+        }
+      });
+    }
+  };
+
+  const openManagedDialog = (dialog, trigger) => {
+    if (!dialog) return;
+
+    lastDialogTrigger = trigger || document.activeElement;
+
+    if (typeof dialog.showModal === "function") {
+      if (!dialog.open) {
+        dialog.showModal();
+      }
+    } else {
+      dialog.setAttribute("open", "");
+      dialog.setAttribute("role", "dialog");
+      dialog.setAttribute("aria-modal", "true");
     }
 
-    const ctx = chartCanvas.getContext('2d');
-    const colorBlue = 'rgba(54, 162, 235, 1)';
-    const colorBlueBg = 'rgba(54, 162, 235, 0.3)';
-    const colorGrid = 'rgba(150, 150, 150, 0.2)';
-    const colorText = '#888888';
+    syncDialogBodyState();
 
-    const currentData = chartDataConfig[category];
+    const focusTarget = dialog.querySelector("[data-dialog-initial]") || dialog.querySelector(focusableSelector);
+    if (focusTarget && typeof focusTarget.focus === "function") {
+      window.requestAnimationFrame(() => focusTarget.focus({ preventScroll: true }));
+    }
+  };
 
-    radarChartInstance = new Chart(ctx, {
-      type: 'radar',
-      data: {
-        labels: currentData.labels,
-        datasets: [{
-          label: 'Nível de Domínio (%)',
-          data: currentData.data,
-          backgroundColor: colorBlueBg,
-          borderColor: colorBlue,
-          pointBackgroundColor: colorBlue,
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: colorBlue,
-          borderWidth: 2,
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            bodyFont: { family: "'Inter', sans-serif" }
-          }
-        },
-        scales: {
-          r: {
-            angleLines: { color: colorGrid },
-            grid: { color: colorGrid },
-            pointLabels: {
-              color: colorText,
-              font: { family: "'Inter', sans-serif", size: 10, weight: '600' }
-            },
-            ticks: {
-              display: false,
-              min: 0,
-              max: 100,
-              stepSize: 20
-            }
-          }
-        }
+  const closeManagedDialog = (dialog) => {
+    if (!dialog || !dialog.open) return;
+
+    if (typeof dialog.close === "function") {
+      dialog.close();
+    } else {
+      dialog.removeAttribute("open");
+      restoreDialogFocus();
+    }
+  };
+
+  const bindBackdropClose = (dialog) => {
+    if (!dialog) return;
+
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) {
+        closeManagedDialog(dialog);
+      }
+    });
+
+    dialog.addEventListener("close", restoreDialogFocus);
+  };
+
+  const resetContactCopyState = () => {
+    if (contactCopyStatus) {
+      contactCopyStatus.textContent = "";
+    }
+
+    contactCopyButtons.forEach((button) => {
+      button.classList.remove("is-copied");
+      const label = button.querySelector("[data-copy-text]");
+      if (label) {
+        label.textContent = "Copiar";
+      }
+    });
+  };
+
+  const setContactCopyState = (message, copied = false) => {
+    if (contactCopyStatus) {
+      contactCopyStatus.textContent = message;
+    }
+
+    contactCopyButtons.forEach((button) => {
+      button.classList.toggle("is-copied", copied);
+      const label = button.querySelector("[data-copy-text]");
+      if (label) {
+        label.textContent = copied ? "Copiado" : "Copiar";
+      }
+    });
+  };
+
+  const copyTextFallback = (text) => {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.top = "-9999px";
+    textarea.style.opacity = "0";
+
+    document.body.append(textarea);
+    textarea.select();
+    const copied = document.execCommand("copy");
+    textarea.remove();
+
+    return copied;
+  };
+
+  const copyContactEmail = async (button) => {
+    const email = button.getAttribute("data-copy-email");
+    if (!email) return;
+
+    let copied = false;
+
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(email);
+        copied = true;
+      } catch {
+        copied = false;
+      }
+    }
+
+    if (!copied) {
+      try {
+        copied = copyTextFallback(email);
+      } catch {
+        copied = false;
+      }
+    }
+
+    if (copied) {
+      setContactCopyState("E-mail copiado para a área de transferência.", true);
+    } else {
+      setContactCopyState("Não foi possível copiar automaticamente. Selecione o e-mail acima.", false);
+    }
+  };
+
+  const updateActiveLink = (id) => {
+    navLinks.forEach((link) => {
+      const isActive = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  const updateActiveSection = () => {
+    if (!sections.length) return;
+    const offset = window.innerHeight < 720 ? 120 : 160;
+    let current = sections[0].id;
+
+    sections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= offset) {
+        current = section.id;
+      }
+    });
+
+    updateActiveLink(current);
+  };
+
+  const handleScroll = () => {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    window.requestAnimationFrame(() => {
+      setHeaderState();
+      updateActiveSection();
+      scrollTicking = false;
+    });
+  };
+
+  const getStoredTheme = () => {
+    try {
+      return window.localStorage.getItem("victor-portfolio-theme");
+    } catch {
+      return null;
+    }
+  };
+
+  const storeTheme = (theme) => {
+    try {
+      window.localStorage.setItem("victor-portfolio-theme", theme);
+    } catch {
+      return null;
+    }
+  };
+
+  const applyTheme = (theme) => {
+    root.dataset.theme = theme;
+    if (!themeToggle) return;
+    const label = theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro";
+    themeToggle.setAttribute("aria-label", label);
+    themeToggle.innerHTML = `<i data-lucide="${theme === "dark" ? "moon" : "sun"}" aria-hidden="true"></i><span>Tema</span>`;
+    renderIcons();
+  };
+
+  const initialTheme = getStoredTheme() || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  applyTheme(initialTheme);
+
+  if (yearSlot) {
+    yearSlot.textContent = String(new Date().getFullYear());
+  }
+
+  if (navToggle) {
+    navToggle.addEventListener("click", toggleMenu);
+  }
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+      applyTheme(nextTheme);
+      storeTheme(nextTheme);
+    });
+  }
+
+  resumeOpeners.forEach((opener) => {
+    opener.addEventListener("click", () => {
+      closeMenu();
+      openManagedDialog(resumeDialog, opener);
+    });
+  });
+
+  resumeClosers.forEach((closer) => {
+    closer.addEventListener("click", () => closeManagedDialog(resumeDialog));
+  });
+
+  contactOpeners.forEach((opener) => {
+    opener.addEventListener("click", () => {
+      closeMenu();
+      resetContactCopyState();
+      openManagedDialog(contactDialog, opener);
+    });
+  });
+
+  contactClosers.forEach((closer) => {
+    closer.addEventListener("click", () => closeManagedDialog(contactDialog));
+  });
+
+  contactCopyButtons.forEach((button) => {
+    button.addEventListener("click", () => copyContactEmail(button));
+  });
+
+  projectLightboxOpeners.forEach((opener) => {
+    opener.addEventListener("click", () => {
+      const src = opener.getAttribute("data-lightbox-src");
+      if (!src || !projectLightbox || !projectLightboxImage) return;
+
+      const title = opener.getAttribute("data-lightbox-title") || "Preview do projeto";
+      const alt = opener.getAttribute("data-lightbox-alt") || "";
+
+      if (projectLightboxTitle) {
+        projectLightboxTitle.textContent = title;
+      }
+
+      projectLightboxImage.src = src;
+      projectLightboxImage.alt = alt;
+      openManagedDialog(projectLightbox, opener);
+    });
+  });
+
+  projectLightboxClosers.forEach((closer) => {
+    closer.addEventListener("click", () => closeManagedDialog(projectLightbox));
+  });
+
+  bindBackdropClose(resumeDialog);
+  bindBackdropClose(contactDialog);
+  bindBackdropClose(projectLightbox);
+
+  if (contactDialog) {
+    contactDialog.addEventListener("close", resetContactCopyState);
+  }
+
+  if (projectLightbox) {
+    projectLightbox.addEventListener("close", () => {
+      if (projectLightboxImage) {
+        projectLightboxImage.removeAttribute("src");
+        projectLightboxImage.alt = "";
       }
     });
   }
 
-  // Event Listeners para os Cards de Habilidades
-  const skillCards = document.querySelectorAll('.skill-category');
-  
-  skillCards.forEach(card => {
-    card.addEventListener('click', () => {
-      if (card.classList.contains('active-card')) {
-        card.classList.remove('active-card');
-        renderSkillsChart('geral');
-      } else {
-        skillCards.forEach(c => c.classList.remove('active-card'));
-        card.classList.add('active-card');
-        
-        const category = card.getAttribute('data-category');
-        renderSkillsChart(category);
-      }
-    });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+      closeManagedDialog(resumeDialog);
+      closeManagedDialog(contactDialog);
+      closeManagedDialog(projectLightbox);
+    }
   });
 
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 980) {
+      closeMenu();
+    }
+    updateActiveSection();
+  });
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  setHeaderState();
+  updateActiveSection();
+  hydrateProjectPreviews();
+
+  const revealItems = Array.from(document.querySelectorAll(".reveal"));
+  if (reduceMotion.matches || !("IntersectionObserver" in window)) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+  } else {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: "0px 0px -12% 0px",
+      threshold: 0.12
+    });
+
+    revealItems.forEach((item) => {
+      revealObserver.observe(item);
+    });
+  }
+
+  renderIcons();
 });
