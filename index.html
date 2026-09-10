@@ -190,7 +190,7 @@
         <div class="interest-grid">
           <article class="interest-card">
             <span class="interest-icon" aria-hidden="true">
-              <i data-lucide="gamepad-2" aria-hidden="true"></i>
+              <i data-lucide="pencil" aria-hidden="true"></i>
             </span>
             <div>
               <h4>Jogos</h4>
@@ -199,7 +199,7 @@
           </article>
           <article class="interest-card">
             <span class="interest-icon" aria-hidden="true">
-              <i data-lucide="headphones" aria-hidden="true"></i>
+              <i data-lucide="pencil" aria-hidden="true"></i>
             </span>
             <div>
               <h4>Música</h4>
@@ -208,7 +208,7 @@
           </article>
           <article class="interest-card">
             <span class="interest-icon" aria-hidden="true">
-              <i data-lucide="dumbbell" aria-hidden="true"></i>
+              <i data-lucide="pencil" aria-hidden="true"></i>
             </span>
             <div>
               <h4>Esportes</h4>
@@ -217,7 +217,7 @@
           </article>
           <article class="interest-card">
             <span class="interest-icon" aria-hidden="true">
-              <i data-lucide="utensils" aria-hidden="true"></i>
+              <i data-lucide="pencil" aria-hidden="true"></i>
             </span>
             <div>
               <h4>Cozinhar</h4>
@@ -320,37 +320,38 @@
         <h2 id="projetos-title">Projetos que sustentam meu foco em software.</h2>
       </div>
 
-      <p class="project-section-label reveal">Projetos em destaque</p>
+      <p class="project-section-label reveal">Projetos em construção</p>
 
       <article class="featured-project portfolio-project reveal">
         <div class="featured-project-layout">
           <div class="featured-project-content">
-            <div class="project-label">Projeto autoral</div>
+            <div class="project-label">Projeto inicial</div>
             <div class="featured-copy">
               <h3>Portfólio pessoal</h3>
               <p>
-                Experiência autoral criada para apresentar minha trajetória profissional com navegação
-                acessível, tema claro e escuro, previews visuais de projetos e atenção especial aos
-                detalhes de interface.
+                Experiência autoral criada para apresentar minha trajetória com navegação acessível,
+                temas claro e escuro, conteúdo em três idiomas e atenção especial aos detalhes de
+                interface.
               </p>
             </div>
             <p class="project-note">Design, desenvolvimento e conteúdo</p>
             <div class="tag-row compact">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-              <span>Acessibilidade</span>
+              <span>React</span>
+              <span>Next.js</span>
+              <span>TypeScript</span>
+              <span>SCSS</span>
             </div>
           </div>
 
-          <figure class="project-preview project-preview-contain project-preview-wide portfolio-preview" data-preview-src="assets/projects/portfolio-pessoal.png" data-preview-alt="Screenshot da home do portfólio pessoal." data-preview-ready="true">
-            <div class="project-preview-placeholder" role="img" aria-label="Screenshot pendente do portfólio pessoal. Substitua por assets/projects/portfolio-pessoal.png.">
+          <figure class="project-preview portfolio-preview has-image" data-preview-src="assets/projects/portfolio-pessoal.png" data-preview-alt="Screenshot da home do portfólio pessoal.">
+            <img class="project-preview-image" src="assets/projects/portfolio-pessoal.png" alt="Screenshot da home do portfólio pessoal." loading="lazy" decoding="async">
+            <div class="project-preview-placeholder" role="img" aria-hidden="true" aria-label="Screenshot pendente do portfólio pessoal. Substitua por assets/projects/portfolio-pessoal.png.">
               <span>Screenshot pendente</span>
               <strong>assets/projects/portfolio-pessoal.png</strong>
               <small>Substitua este placeholder pelo print da home.</small>
             </div>
-            <a class="project-preview-link" href="#inicio" aria-label="Ver prévia da home do portfólio pessoal">
-              <span>Prévia da home</span>
+            <a class="project-preview-link" href="https://portifolio-xi-tawny.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Ver projeto Portfólio pessoal">
+              <span>Ver projeto</span>
             </a>
           </figure>
         </div>
@@ -420,20 +421,20 @@
             </div>
             <div class="project-detail-grid">
               <div>
-                <h4>Minha atuação</h4>
-                <p>Landing page, telas de login e cadastro/registro, além da participação no fluxo de autenticação relacionado a essas telas.</p>
+                <h4>Atuei diretamente</h4>
+                <p>
+                  Landing page, telas de login e cadastro/registro, participação no fluxo de
+                  autenticação relacionado a essas telas e KYC em Configurações para coletar dados
+                  necessários à conexão e habilitação da conta via Stripe Connect.
+                </p>
               </div>
               <div>
-                <h4>KYC em Configurações</h4>
-                <p>Interface e fluxo para coletar os dados necessários à conexão e habilitação da conta do vendedor via Stripe Connect.</p>
-              </div>
-              <div>
-                <h4>Funcionalidades do projeto</h4>
-                <p>Onboarding de sellers, autenticação, área privada, configuração de conta, KYC e integração com Stripe Connect no produto.</p>
-              </div>
-              <div>
-                <h4>Escopo em equipe</h4>
-                <p>Projeto desenvolvido em equipe, com contribuição individual concentrada em interfaces, formulários e fluxo frontend de onboarding.</p>
+                <h4>Projeto em equipe</h4>
+                <p>
+                  O VolloPay inclui onboarding de sellers, autenticação, área privada, configuração
+                  de conta, KYC e integração com Stripe Connect. Minha contribuição ficou concentrada
+                  em interfaces, formulários e fluxo frontend de onboarding.
+                </p>
               </div>
             </div>
             <div class="tag-row">
@@ -594,12 +595,16 @@
             </a>
           </div>
 
-          <figure class="project-preview project-preview-card" data-preview-src="assets/projects/caminhodv.png" data-preview-alt="Screenshot da aplicação CaminhoDV.">
-            <div class="project-preview-placeholder" role="img" aria-label="Screenshot pendente do projeto CaminhoDV. Substitua por assets/projects/caminhodv.png.">
+          <figure class="project-preview project-preview-card has-image" data-preview-src="assets/projects/caminhodv.png" data-preview-alt="Screenshot da aplicação CaminhoDV.">
+            <img class="project-preview-image" src="assets/projects/caminhodv.png" alt="Screenshot da aplicação CaminhoDV." loading="lazy" decoding="async">
+            <div class="project-preview-placeholder" role="img" aria-hidden="true" aria-label="Screenshot pendente do projeto CaminhoDV. Substitua por assets/projects/caminhodv.png.">
               <span>Screenshot pendente</span>
               <strong>assets/projects/caminhodv.png</strong>
               <small>Substitua este placeholder pelo print da aplicação.</small>
             </div>
+            <a class="project-preview-link" href="https://caminhodv.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Ver projeto CaminhoDV">
+              <span>Ver projeto</span>
+            </a>
           </figure>
         </article>
       </div>

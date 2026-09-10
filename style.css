@@ -1017,6 +1017,15 @@ h4 {
     linear-gradient(165deg, transparent 56%, color-mix(in oklch, var(--accent-soft) 64%, transparent));
 }
 
+.fintech-project .featured-project-layout {
+  grid-template-columns: minmax(0, 0.98fr) minmax(320px, 0.72fr);
+  align-items: center;
+}
+
+.fintech-project .featured-project-content {
+  gap: 1.15rem;
+}
+
 .featured-project.webpet-project::before {
   background:
     linear-gradient(115deg, color-mix(in oklch, var(--accent-soft) 66%, transparent), transparent 46%),
@@ -1079,25 +1088,26 @@ h4 {
 }
 
 .portfolio-preview {
-  width: min(100%, 320px);
+  width: min(100%, 460px);
   justify-self: end;
   border-radius: 18px;
 }
 
 .portfolio-preview .project-preview-link {
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .portfolio-preview .project-preview-link::before {
-  opacity: 0.72;
+  opacity: 0.62;
 }
 
 .portfolio-preview .project-preview-link span {
-  min-height: 38px;
-  border-radius: 10px;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  min-height: 48px;
+  padding-inline: 0.92rem;
+  border-radius: 8px;
+  font-size: 0.98rem;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .project-section-label {
@@ -1168,6 +1178,25 @@ h4 {
   box-shadow: 0 18px 42px oklch(0.2 0.035 214 / 0.14);
   overflow: hidden;
   isolation: isolate;
+}
+
+.projects .featured-project-layout,
+.projects .project-card {
+  align-items: center;
+}
+
+.projects .project-preview {
+  align-self: center;
+  justify-self: center;
+  margin-inline: auto;
+}
+
+.projects .featured-project .project-preview {
+  max-width: 520px;
+}
+
+.projects .project-card .project-preview {
+  max-width: 380px;
 }
 
 .project-preview-image {
@@ -1810,9 +1839,25 @@ h4 {
     grid-template-columns: 1fr;
   }
 
+  .fintech-project .featured-project-layout {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .projects .featured-project-layout,
+  .projects .project-card {
+    align-items: center;
+  }
+
   .portfolio-preview {
     width: 100%;
     justify-self: stretch;
+  }
+
+  .projects .featured-project .project-preview,
+  .projects .project-card .project-preview {
+    max-width: none;
+    width: 100%;
   }
 
   .hero {
