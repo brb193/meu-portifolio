@@ -6,29 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Victor Galvão | Desenvolvedor Backend & Full Stack</title>
-  <meta name="description" content="Portfólio profissional de Victor Galvão, desenvolvedor Backend e Full Stack, estudante de Engenharia de Software na UTFPR, com experiência adicional em cloud, infraestrutura e observabilidade.">
-  <meta name="keywords" content="Victor Galvão, desenvolvedor backend, desenvolvedor full stack, desenvolvedor de software, APIs REST, bancos de dados, React, Next.js, Python, Java, engenharia de software, UTFPR">
+  <title>Victor Galvão | Desenvolvedor Full Stack</title>
+  <meta name="description"
+    content="Portfólio profissional de Victor Galvão, desenvolvedor Full Stack com foco em Backend, estudante de Engenharia de Software na UTFPR, com experiência adicional em cloud, infraestrutura e observabilidade.">
+  <meta name="keywords"
+    content="Victor Galvão, desenvolvedor backend, desenvolvedor full stack, desenvolvedor de software, APIs REST, bancos de dados, React, Next.js, Python, Java, engenharia de software, UTFPR">
   <meta name="author" content="Victor Galvão">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://brb193.github.io/">
+  <link rel="canonical" href="https://portifolio-xi-tawny.vercel.app/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
-  <meta property="og:url" content="https://brb193.github.io/">
-  <meta property="og:title" content="Victor Galvão | Desenvolvedor Backend & Full Stack">
-  <meta property="og:description" content="Desenvolvimento Backend e Full Stack com experiência em APIs, bancos de dados, integrações e visão complementar de cloud e produção.">
-  <meta property="og:image" content="https://brb193.github.io/perfil400x400.png">
+  <meta property="og:url" content="https://portifolio-xi-tawny.vercel.app/">
+  <meta property="og:title" content="Victor Galvão | Desenvolvedor Full Stack">
+  <meta property="og:description"
+    content="Desenvolvimento Full Stack com foco em Backend, APIs, bancos de dados, integrações e visão complementar de cloud e produção.">
+  <meta property="og:image" content="https://portifolio-xi-tawny.vercel.app/perfil400x400.png">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Victor Galvão | Desenvolvedor Backend & Full Stack">
-  <meta name="twitter:description" content="Portfólio profissional de Victor Galvão, desenvolvedor Backend e Full Stack e estudante de Engenharia de Software na UTFPR.">
-  <meta name="twitter:image" content="https://brb193.github.io/perfil400x400.png">
+  <meta name="twitter:title" content="Victor Galvão | Desenvolvedor Full Stack">
+  <meta name="twitter:description"
+    content="Portfólio profissional de Victor Galvão, desenvolvedor Full Stack com foco em Backend e estudante de Engenharia de Software na UTFPR.">
+  <meta name="twitter:image" content="https://portifolio-xi-tawny.vercel.app/perfil400x400.png">
 
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/lucide@latest" defer></script>
   <script src="script.js" defer></script>
@@ -38,9 +44,9 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Victor Galvão",
-      "url": "https://brb193.github.io/",
-      "image": "https://brb193.github.io/perfil400x400.png",
-      "jobTitle": "Desenvolvedor Backend & Full Stack",
+      "url": "https://portifolio-xi-tawny.vercel.app/",
+      "image": "https://portifolio-xi-tawny.vercel.app/perfil400x400.png",
+      "jobTitle": "Desenvolvedor Full Stack com foco em Backend",
       "alumniOf": {
         "@type": "CollegeOrUniversity",
         "name": "Universidade Tecnológica Federal do Paraná"
@@ -69,15 +75,15 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#inicio">Pular para o conteúdo</a>
+  <a class="skip-link" href="#inicio" data-i18n="skip.content">Pular para o conteúdo</a>
 
   <header class="site-header" data-header>
-    <nav class="navbar" aria-label="Navegação principal">
-      <a class="brand" href="#inicio" aria-label="Ir para o início">
+    <nav class="navbar" aria-label="Navegação principal" data-i18n-aria-label="nav.ariaLabel">
+      <a class="brand" href="#inicio" aria-label="Ir para o início" data-i18n-aria-label="nav.brandAria">
         <span class="brand-mark" aria-hidden="true">VG</span>
         <span class="brand-copy">
           <strong>Victor Galvão</strong>
-          <small>Software Developer</small>
+          <small data-i18n="nav.brandSubtitle">Desenvolvedor de Software</small>
         </span>
       </a>
 
@@ -87,13 +93,27 @@
       </button>
 
       <div class="nav-panel" id="site-menu">
-        <a class="nav-link active" href="#inicio" aria-current="page">Início</a>
-        <a class="nav-link" href="#sobre">Sobre</a>
-        <a class="nav-link" href="#experiencia">Experiência</a>
-        <a class="nav-link" href="#projetos">Projetos</a>
-        <a class="nav-link" href="#formacao">Formação</a>
-        <a class="nav-link" href="#tecnologias">Tecnologias</a>
-        <a class="nav-link" href="#contato">Contato</a>
+        <div class="language-switcher" data-language-switcher>
+          <button class="language-toggle" type="button" aria-haspopup="menu" aria-expanded="false"
+            aria-controls="language-menu" data-language-toggle>
+            <i data-lucide="globe-2" aria-hidden="true"></i>
+            <span data-language-current>PT-BR</span>
+          </button>
+          <div class="language-menu" id="language-menu" role="menu" aria-label="Selecionar idioma" data-language-menu
+            data-i18n-aria-label="language.menuLabel">
+            <button type="button" role="menuitemradio" aria-checked="true" data-language-option="pt-BR">Português
+              (Brasil)</button>
+            <button type="button" role="menuitemradio" aria-checked="false" data-language-option="en">English</button>
+            <button type="button" role="menuitemradio" aria-checked="false" data-language-option="es">Español</button>
+          </div>
+        </div>
+        <a class="nav-link active" href="#inicio" aria-current="page" data-i18n="nav.home">Início</a>
+        <a class="nav-link" href="#sobre" data-i18n="nav.about">Sobre</a>
+        <a class="nav-link" href="#experiencia" data-i18n="nav.experience">Experiência</a>
+        <a class="nav-link" href="#projetos" data-i18n="nav.projects">Projetos</a>
+        <a class="nav-link" href="#formacao" data-i18n="nav.education">Formação</a>
+        <a class="nav-link" href="#tecnologias" data-i18n="nav.technologies">Tecnologias</a>
+        <a class="nav-link" href="#contato" data-i18n="nav.contact">Contato</a>
       </div>
 
       <button class="theme-toggle" type="button" aria-label="Alternar tema" data-theme-toggle>
@@ -106,60 +126,62 @@
   <main>
     <section class="hero section-shell" id="inicio" aria-labelledby="hero-title">
       <div class="hero-copy reveal">
-        <p class="section-kicker">01 - Apresentação</p>
+        <p class="section-kicker" data-i18n="hero.kicker">01 - Apresentação</p>
         <h1 class="hero-title" id="hero-title">
-          <span>Olá, eu sou</span>
+          <span data-i18n="hero.greeting">Olá, eu sou</span>
           <strong>Victor Galvão</strong>
         </h1>
         <p class="hero-role">
           <i data-lucide="code-2" aria-hidden="true"></i>
-          Desenvolvedor Full Stack
+          <span data-i18n="hero.role">Desenvolvedor Full Stack</span>
         </p>
-        <p class="hero-text">
+        <p class="hero-text" data-i18n="hero.text">
           Desenvolvo aplicações web com foco em backend, APIs, bancos de dados e integrações,
           combinando desenvolvimento de software com experiência prática em ambientes de produção.
         </p>
       </div>
 
-      <aside class="hero-profile reveal" aria-label="Foto de perfil">
+      <aside class="hero-profile reveal" aria-label="Foto de perfil" data-i18n-aria-label="hero.profileAria">
         <figure class="portrait-frame">
           <span class="portrait-orbit" aria-hidden="true"></span>
           <span class="portrait-dot portrait-dot-one" aria-hidden="true"></span>
           <span class="portrait-dot portrait-dot-two" aria-hidden="true"></span>
           <span class="portrait-dot portrait-dot-three" aria-hidden="true"></span>
-          <img src="perfil400x400.png" width="400" height="400" alt="Ilustração de perfil de Victor Galvão">
+          <img src="perfil400x400.png" width="400" height="400" alt="Ilustração de perfil de Victor Galvão"
+            data-i18n-alt="hero.profileAlt">
         </figure>
       </aside>
 
-      <div class="hero-actions" aria-label="Ações principais">
+      <div class="hero-actions" aria-label="Ações principais" data-i18n-aria-label="hero.actionsAria">
         <a class="button primary" href="#projetos">
           <i data-lucide="arrow-down" aria-hidden="true"></i>
-          Ver projetos
+          <span data-i18n="hero.viewProjects">Ver projetos</span>
         </a>
-        <button class="button secondary" type="button" data-contact-open aria-haspopup="dialog" aria-controls="contact-dialog">
+        <button class="button secondary" type="button" data-contact-open aria-haspopup="dialog"
+          aria-controls="contact-dialog">
           <i data-lucide="mail" aria-hidden="true"></i>
-          Iniciar conversa
+          <span data-i18n="hero.startConversation">Iniciar conversa</span>
         </button>
       </div>
     </section>
 
     <section class="about section-shell" id="sobre" aria-labelledby="sobre-title">
       <div class="section-heading about-heading reveal">
-        <p class="section-kicker">02 - Sobre mim</p>
+        <p class="section-kicker" data-i18n="about.kicker">02 - Sobre mim</p>
         <h2 id="sobre-title">
-          <span>Código, lógica e</span>
-          <span>resolução de problemas.</span>
+          <span data-i18n="about.titleLine1">Código, lógica e</span>
+          <span data-i18n="about.titleLine2">resolução de problemas.</span>
         </h2>
       </div>
 
       <div class="about-layout">
         <div class="about-text reveal">
-          <p>
+          <p data-i18n="about.paragraph1">
             Sou Victor Galvão, estudante de Engenharia de Software na UTFPR e desenvolvedor Full Stack com
             foco em Backend. Tenho experiência com desenvolvimento de aplicações web,
             APIs, bancos de dados, autenticação e integrações entre sistemas.
           </p>
-          <p>
+          <p data-i18n="about.paragraph2">
             Minha experiência anterior com Cloud, infraestrutura e observabilidade complementa meu
             perfil, trazendo uma visão prática sobre disponibilidade, troubleshooting e funcionamento
             de aplicações em produção.
@@ -168,17 +190,17 @@
 
         <dl class="fact-list about-summary reveal">
           <div>
-            <dt>Foco</dt>
-            <dd>Backend</dd>
+            <dt data-i18n="about.factFocusLabel">Foco</dt>
+            <dd data-i18n="about.factFocusValue">Backend</dd>
           </div>
           <div>
-            <dt>Perfil</dt>
-            <dd>Full Stack</dd>
+            <dt data-i18n="about.factProfileLabel">Perfil</dt>
+            <dd data-i18n="about.factProfileValue">Full Stack</dd>
           </div>
           <div>
-            <dt>Formação</dt>
+            <dt data-i18n="about.factEducationLabel">Formação</dt>
             <dd>
-              <strong>Engenharia de Software</strong>
+              <strong data-i18n="about.factEducationValue">Engenharia de Software</strong>
               <small>UTFPR</small>
             </dd>
           </div>
@@ -186,42 +208,46 @@
       </div>
 
       <div class="about-interests reveal" aria-labelledby="about-interests-title">
-        <h3 id="about-interests-title">Quando não estou programando</h3>
+        <h3 id="about-interests-title" data-i18n="about.interestsTitle">Quando não estou programando</h3>
         <div class="interest-grid">
           <article class="interest-card">
             <span class="interest-icon" aria-hidden="true">
-              <i data-lucide="pencil" aria-hidden="true"></i>
+              <i data-lucide="gamepad-2" aria-hidden="true"></i>
             </span>
             <div>
-              <h4>Jogos</h4>
-              <p>Gosto de jogos que envolvem estratégia e competição.</p>
+              <h4 data-i18n="hobbies.gaming.title">Jogos</h4>
+              <p data-i18n="hobbies.gaming.text">Gosto de jogos que envolvem estratégia, competição e resolução de
+                problemas.</p>
             </div>
           </article>
           <article class="interest-card">
             <span class="interest-icon" aria-hidden="true">
-              <i data-lucide="pencil" aria-hidden="true"></i>
+              <i data-lucide="trophy" aria-hidden="true"></i>
             </span>
             <div>
-              <h4>Música</h4>
-              <p>Música faz parte do meu dia a dia, principalmente enquanto estudo, desenvolvo ou relaxo.</p>
+              <h4 data-i18n="hobbies.sports.title">Esportes</h4>
+              <p data-i18n="hobbies.sports.text">Gosto de acompanhar e praticar esportes como forma de manter uma rotina
+                ativa e equilibrada.</p>
             </div>
           </article>
           <article class="interest-card">
             <span class="interest-icon" aria-hidden="true">
-              <i data-lucide="pencil" aria-hidden="true"></i>
+              <i data-lucide="headphones" aria-hidden="true"></i>
             </span>
             <div>
-              <h4>Esportes</h4>
-              <p>Gosto de praticar esportes para relaxar e interagir com amigos.</p>
+              <h4 data-i18n="hobbies.music.title">Músicas</h4>
+              <p data-i18n="hobbies.music.text">Música faz parte do meu dia a dia, principalmente enquanto estudo,
+                desenvolvo ou relaxo.</p>
             </div>
           </article>
           <article class="interest-card">
             <span class="interest-icon" aria-hidden="true">
-              <i data-lucide="pencil" aria-hidden="true"></i>
+              <i data-lucide="clapperboard" aria-hidden="true"></i>
             </span>
             <div>
-              <h4>Cozinhar</h4>
-              <p>Gosto de cozinhar e experimentar novas receitas.</p>
+              <h4 data-i18n="hobbies.movies.title">Filmes e séries</h4>
+              <p data-i18n="hobbies.movies.text">Gosto de filmes e séries, especialmente histórias que prendem a atenção
+                e exploram boas narrativas.</p>
             </div>
           </article>
         </div>
@@ -233,18 +259,20 @@
           <span>PDF</span>
         </div>
         <div class="resume-card-copy">
-          <p class="section-kicker">Currículo</p>
-          <h3>Minha trajetória profissional.</h3>
-          <p>Visualize meu currículo sem sair do portfólio ou baixe a versão mais recente.</p>
+          <p class="section-kicker" data-i18n="resume.cardKicker">Currículo</p>
+          <h3 data-i18n="resume.cardTitle">Minha trajetória profissional.</h3>
+          <p data-i18n="resume.cardText">Visualize meu currículo sem sair do portfólio ou baixe a versão mais recente.
+          </p>
         </div>
         <div class="resume-card-actions">
-          <button class="button primary" type="button" data-resume-open aria-haspopup="dialog" aria-controls="resume-dialog">
+          <button class="button primary" type="button" data-resume-open aria-haspopup="dialog"
+            aria-controls="resume-dialog">
             <i data-lucide="eye" aria-hidden="true"></i>
-            Visualizar currículo
+            <span data-i18n="resume.view">Visualizar currículo</span>
           </button>
           <a class="button secondary" href="curriculo-victor-galvao.pdf" download="Victor-Galvao-CV.pdf">
             <i data-lucide="download" aria-hidden="true"></i>
-            Baixar PDF
+            <span data-i18n="resume.downloadPdf">Baixar PDF</span>
           </a>
         </div>
       </div>
@@ -252,8 +280,8 @@
 
     <section class="experience section-shell" id="experiencia" aria-labelledby="experiencia-title">
       <div class="section-heading reveal">
-        <p class="section-kicker">03 / Experiência profissional</p>
-        <h2 id="experiencia-title">Experiência que conecta desenvolvimento e operação.</h2>
+        <p class="section-kicker" data-i18n="experience.kicker">03 / Experiência profissional</p>
+        <h2 id="experiencia-title" data-i18n="experience.title">Experiência que conecta desenvolvimento e operação.</h2>
       </div>
 
       <div class="timeline">
@@ -263,25 +291,29 @@
             <strong>Nexxt Cloud</strong>
           </div>
           <div class="timeline-content">
-            <h3>Analista de Suporte, NOC e Infraestrutura</h3>
-            <p>
+            <h3 data-i18n="experience.nexxt.role">Analista de Suporte, NOC e Infraestrutura</h3>
+            <p data-i18n="experience.nexxt.description">
               Atuação com monitoramento de aplicações e infraestrutura, análise de incidentes,
               troubleshooting, escalonamento N1/N2 e acompanhamento de sistemas em produção.
               A experiência complementou minha visão como desenvolvedor sobre disponibilidade,
               observabilidade e operação de aplicações reais.
             </p>
             <ul>
-              <li>Monitoramento com Grafana, observabilidade e acompanhamento de ambientes de clientes.</li>
-              <li>Análise inicial de incidentes, investigação de falhas e comunicação com equipes técnicas.</li>
-              <li>Rotinas envolvendo AWS Lambda, Google Cloud Platform e serviços corporativos em nuvem.</li>
-              <li>Experiência com dashboards, disponibilidade e comportamento de sistemas em produção.</li>
+              <li data-i18n="experience.nexxt.bullet1">Monitoramento com Grafana, observabilidade e acompanhamento de
+                ambientes de clientes.</li>
+              <li data-i18n="experience.nexxt.bullet2">Análise inicial de incidentes, investigação de falhas e
+                comunicação com equipes técnicas.</li>
+              <li data-i18n="experience.nexxt.bullet3">Rotinas envolvendo AWS Lambda, Google Cloud Platform e serviços
+                corporativos em nuvem.</li>
+              <li data-i18n="experience.nexxt.bullet4">Experiência com dashboards, disponibilidade e comportamento de
+                sistemas em produção.</li>
             </ul>
             <div class="tag-row">
               <span>Grafana</span>
               <span>AWS Lambda</span>
               <span>GCP</span>
-              <span>Observabilidade</span>
-              <span>Produção</span>
+              <span data-i18n="tag.observability">Observabilidade</span>
+              <span data-i18n="tag.production">Produção</span>
               <span>Troubleshooting</span>
             </div>
           </div>
@@ -293,21 +325,23 @@
             <strong>Plastec</strong>
           </div>
           <div class="timeline-content">
-            <h3>Desenvolvedor Python Júnior / Estágio</h3>
-            <p>
+            <h3 data-i18n="experience.plastec.role">Desenvolvedor Python Júnior / Estágio</h3>
+            <p data-i18n="experience.plastec.description">
               Desenvolvimento e evolução de funcionalidades para sistema ERP web, com foco em lógica
               de negócio, manutenção de sistemas, banco de dados e melhoria contínua da aplicação.
             </p>
             <ul>
-              <li>Desenvolvimento de funcionalidades em Python para sistema web.</li>
-              <li>Manutenção, evolução e ajuste de recursos existentes.</li>
-              <li>Trabalho com banco de dados e organização de informações do sistema.</li>
+              <li data-i18n="experience.plastec.bullet1">Desenvolvimento de funcionalidades em Python para sistema web.
+              </li>
+              <li data-i18n="experience.plastec.bullet2">Manutenção, evolução e ajuste de recursos existentes.</li>
+              <li data-i18n="experience.plastec.bullet3">Trabalho com banco de dados e organização de informações do
+                sistema.</li>
             </ul>
             <div class="tag-row">
               <span>Python</span>
               <span>ERP Web</span>
-              <span>Banco de dados</span>
-              <span>Manutenção</span>
+              <span data-i18n="tag.database">Banco de dados</span>
+              <span data-i18n="tag.maintenance">Manutenção</span>
             </div>
           </div>
         </article>
@@ -316,324 +350,292 @@
 
     <section class="projects section-shell" id="projetos" aria-labelledby="projetos-title">
       <div class="section-heading reveal">
-        <p class="section-kicker">04 / Projetos</p>
-        <h2 id="projetos-title">Projetos que sustentam meu foco em software.</h2>
+        <p class="section-kicker" data-i18n="projects.kicker">04 / Projetos</p>
+        <h2 id="projetos-title" data-i18n="projects.title">Projetos que sustentam meu foco em software.</h2>
       </div>
 
-      <p class="project-section-label reveal">Projetos em construção</p>
-
-      <article class="featured-project portfolio-project reveal">
-        <div class="featured-project-layout">
-          <div class="featured-project-content">
-            <div class="project-label">Projeto inicial</div>
-            <div class="featured-copy">
-              <h3>Portfólio pessoal</h3>
-              <p>
-                Experiência autoral criada para apresentar minha trajetória com navegação acessível,
-                temas claro e escuro, conteúdo em três idiomas e atenção especial aos detalhes de
-                interface.
-              </p>
-            </div>
-            <p class="project-note">Design, desenvolvimento e conteúdo</p>
-            <div class="tag-row compact">
-              <span>React</span>
-              <span>Next.js</span>
-              <span>TypeScript</span>
-              <span>SCSS</span>
-            </div>
-          </div>
-
-          <figure class="project-preview portfolio-preview has-image" data-preview-src="assets/projects/portfolio-pessoal.png" data-preview-alt="Screenshot da home do portfólio pessoal.">
-            <img class="project-preview-image" src="assets/projects/portfolio-pessoal.png" alt="Screenshot da home do portfólio pessoal." loading="lazy" decoding="async">
-            <div class="project-preview-placeholder" role="img" aria-hidden="true" aria-label="Screenshot pendente do portfólio pessoal. Substitua por assets/projects/portfolio-pessoal.png.">
-              <span>Screenshot pendente</span>
-              <strong>assets/projects/portfolio-pessoal.png</strong>
-              <small>Substitua este placeholder pelo print da home.</small>
-            </div>
-            <a class="project-preview-link" href="https://portifolio-xi-tawny.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Ver projeto Portfólio pessoal">
-              <span>Ver projeto</span>
-            </a>
-          </figure>
+      <div class="project-group">
+        <div class="project-group-heading reveal">
+          <p class="project-section-label" data-i18n="projects.inProgress">Projetos em progresso</p>
+          <span data-i18n="projects.inProgressDescription">Trabalhos que continuo desenvolvendo e aprimorando.</span>
         </div>
-      </article>
 
-      <article class="featured-project reveal">
-        <div class="featured-project-layout">
-          <div class="featured-project-content">
-            <div class="project-label">Projeto principal</div>
-            <div class="featured-copy">
-              <h3>Facilix</h3>
-              <p class="project-type">Marketplace / Plataforma Web</p>
-              <p>
-                Plataforma web construída como projeto prático de engenharia de software, com arquitetura
-                de marketplace, autenticação, banco de dados, integrações externas e fluxo de pagamentos.
-              </p>
-            </div>
-            <div class="project-detail-grid">
-              <div>
-                <h4>Problema trabalhado</h4>
-                <p>Conectar compradores e vendedores em um ambiente web com contas, pagamentos, APIs e regras de marketplace.</p>
+        <article class="featured-project facilix-project reveal">
+          <div class="featured-project-layout">
+            <div class="featured-project-content">
+              <div class="project-label" data-i18n="projects.facilix.label">Projeto principal</div>
+              <div class="featured-copy">
+                <h3>Facilix</h3>
+                <p class="project-type" data-i18n="projects.facilix.type">Marketplace / Plataforma Web</p>
+                <p data-i18n="projects.facilix.description">
+                  Plataforma web construída como projeto prático de engenharia de software, com arquitetura
+                  de marketplace, autenticação, banco de dados, integrações externas e fluxo de pagamentos.
+                </p>
               </div>
-              <div>
-                <h4>Características</h4>
-                <p>Vendedores, compradores, OAuth, gateway de pagamento, webhooks, autenticação, APIs REST e deploy.</p>
+              <div class="project-detail-grid">
+                <div>
+                  <h4 data-i18n="projects.facilix.problemTitle">Problema trabalhado</h4>
+                  <p data-i18n="projects.facilix.problemText">Conectar compradores e vendedores em um ambiente web com
+                    contas, pagamentos, APIs e regras de marketplace.</p>
+                </div>
+                <div>
+                  <h4 data-i18n="projects.facilix.featuresTitle">Características</h4>
+                  <p data-i18n="projects.facilix.featuresText">Vendedores, compradores, OAuth, gateway de pagamento,
+                    webhooks, autenticação, APIs REST e deploy.</p>
+                </div>
+              </div>
+              <div class="tag-row">
+                <span>Next.js</span>
+                <span>React</span>
+                <span>TypeScript</span>
+                <span>Supabase</span>
+                <span>PostgreSQL</span>
+                <span>Mercado Pago</span>
+                <span>OAuth</span>
+                <span>Vercel</span>
               </div>
             </div>
-            <div class="tag-row">
-              <span>Next.js</span>
-              <span>React</span>
-              <span>TypeScript</span>
-              <span>Supabase</span>
-              <span>PostgreSQL</span>
-              <span>Mercado Pago</span>
-              <span>OAuth</span>
-              <span>Vercel</span>
-            </div>
+
+            <figure class="project-preview project-preview-contain has-image"
+              data-preview-src="assets/projects/facilix.png" data-preview-alt="Screenshot da aplicação Facilix."
+              data-i18n-preview-alt="projects.facilix.previewAlt">
+              <img class="project-preview-image" src="assets/projects/facilix.png"
+                alt="Screenshot da aplicação Facilix." data-i18n-alt="projects.facilix.previewAlt" loading="lazy"
+                decoding="async">
+              <a class="project-preview-link" href="https://facilix-liard.vercel.app/" target="_blank"
+                rel="noopener noreferrer" aria-label="Ver projeto Facilix"
+                data-i18n-aria-label="projects.facilix.viewAria">
+                <span data-i18n="projects.viewProject">Ver projeto</span>
+              </a>
+            </figure>
           </div>
+        </article>
 
-          <figure class="project-preview project-preview-contain has-image" data-preview-src="assets/projects/facilix.png" data-preview-alt="Screenshot da aplicação Facilix.">
-            <img class="project-preview-image" src="assets/projects/facilix.png" alt="Screenshot da aplicação Facilix." loading="lazy" decoding="async">
-            <div class="project-preview-placeholder" role="img" aria-hidden="true" aria-label="Screenshot pendente do projeto Facilix. Substitua por assets/projects/facilix.png.">
-              <span>Screenshot pendente</span>
-              <strong>assets/projects/facilix.png</strong>
-              <small>Substitua este placeholder pelo print da aplicação.</small>
+        <article class="featured-project portfolio-project reveal">
+          <div class="featured-project-layout">
+            <div class="featured-project-content">
+              <div class="project-label" data-i18n="projects.portfolio.label">Em evolução</div>
+              <div class="featured-copy">
+                <h3 data-i18n="projects.portfolio.name">Portfólio Pessoal</h3>
+                <p data-i18n="projects.portfolio.description">
+                  Experiência autoral criada para apresentar minha trajetória com navegação acessível,
+                  temas claro e escuro, conteúdo em três idiomas e atenção especial aos detalhes de
+                  interface.
+                </p>
+              </div>
+              <p class="project-note" data-i18n="projects.portfolio.note">Design, desenvolvimento e conteúdo</p>
+              <div class="tag-row compact">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Vercel</span>
+              </div>
             </div>
-            <a class="project-preview-link" href="https://facilix-liard.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Ver projeto Facilix">
-              <span>Ver projeto</span>
-            </a>
-          </figure>
-        </div>
-      </article>
 
-      <article class="featured-project fintech-project reveal">
-        <div class="featured-project-layout">
-          <div class="featured-project-content">
-            <div class="project-label">Projeto em equipe</div>
-            <div class="featured-copy">
+            <figure class="project-preview portfolio-preview has-image"
+              data-preview-src="assets/projects/portfolio-pessoal.png"
+              data-preview-alt="Screenshot da home do Portfólio Pessoal."
+              data-i18n-preview-alt="projects.portfolio.previewAlt">
+              <img class="project-preview-image" src="assets/projects/portfolio-pessoal.png"
+                alt="Screenshot da home do Portfólio Pessoal." data-i18n-alt="projects.portfolio.previewAlt"
+                loading="lazy" decoding="async">
+              <a class="project-preview-link" href="https://portifolio-xi-tawny.vercel.app/?lang=en" target="_blank"
+                rel="noopener noreferrer" aria-label="Ver projeto Portfólio Pessoal em inglês"
+                data-i18n-aria-label="projects.portfolio.viewAria" data-force-language-link data-force-language="en">
+                <span data-i18n="projects.viewProject">Ver projeto</span>
+              </a>
+            </figure>
+          </div>
+        </article>
+      </div>
+
+      <div class="project-group">
+        <div class="project-group-heading reveal">
+          <p class="project-section-label" data-i18n="projects.completed">Projetos concluídos</p>
+          <span data-i18n="projects.completedDescription">Projetos finalizados individualmente ou em equipe.</span>
+        </div>
+
+        <div class="project-grid completed-project-grid">
+          <article class="project-card reveal">
+            <div class="project-card-content">
+              <div class="project-card-top">
+                <span data-i18n="projects.teamLabel">Projeto em equipe</span>
+              </div>
               <h3>VolloPay</h3>
-              <p class="project-type">Frontend / Onboarding / Stripe Connect</p>
-              <p>
+              <p class="project-type" data-i18n="projects.vollopay.type">Frontend / Onboarding / Stripe Connect</p>
+              <p data-i18n="projects.vollopay.description">
                 Participei do desenvolvimento do VolloPay, uma plataforma de onboarding e habilitação
                 de vendedores para pagamentos. Minha atuação incluiu a criação da landing page, telas
                 de login e cadastro e o fluxo de KYC na área de configurações, utilizado para coletar
                 os dados necessários para conexão e habilitação da conta na Stripe.
               </p>
-            </div>
-            <div class="project-detail-grid">
-              <div>
-                <h4>Atuei diretamente</h4>
-                <p>
-                  Landing page, telas de login e cadastro/registro, participação no fluxo de
-                  autenticação relacionado a essas telas e KYC em Configurações para coletar dados
-                  necessários à conexão e habilitação da conta via Stripe Connect.
-                </p>
-              </div>
-              <div>
-                <h4>Projeto em equipe</h4>
-                <p>
-                  O VolloPay inclui onboarding de sellers, autenticação, área privada, configuração
-                  de conta, KYC e integração com Stripe Connect. Minha contribuição ficou concentrada
-                  em interfaces, formulários e fluxo frontend de onboarding.
-                </p>
-              </div>
-            </div>
-            <div class="tag-row">
-              <span>Next.js</span>
-              <span>React</span>
-              <span>TypeScript</span>
-              <span>Tailwind CSS</span>
-              <span>Stripe Connect</span>
-              <span>Zod</span>
-              <span>React Hook Form</span>
-            </div>
-          </div>
-
-          <figure class="project-preview project-preview-contain project-preview-wide has-image" data-preview-src="assets/projects/vollopay.png" data-preview-alt="Screenshot da área de Configurações de pagamento do VolloPay.">
-            <img class="project-preview-image" src="assets/projects/vollopay.png" alt="Screenshot da área de Configurações de pagamento do VolloPay." loading="lazy" decoding="async">
-            <div class="project-preview-placeholder" role="img" aria-hidden="true" aria-label="Screenshot pendente do projeto VolloPay. Substitua por assets/projects/vollopay.png.">
-              <span>Screenshot pendente</span>
-              <strong>assets/projects/vollopay.png</strong>
-              <small>Substitua este placeholder pelo print da aplicação.</small>
-            </div>
-            <button class="project-preview-link project-preview-button" type="button" data-project-lightbox-open data-lightbox-src="assets/projects/vollopay.png" data-lightbox-title="VolloPay" data-lightbox-alt="Screenshot da área de Configurações de pagamento do VolloPay." aria-haspopup="dialog" aria-controls="project-lightbox" aria-label="Ampliar preview do VolloPay">
-              <span>Ampliar preview</span>
-            </button>
-          </figure>
-        </div>
-      </article>
-
-      <article class="featured-project webpet-project reveal">
-        <div class="featured-project-layout">
-          <div class="featured-project-content">
-            <div class="project-label">Projeto em equipe</div>
-            <div class="featured-copy">
-              <h3>Web Pet</h3>
-              <p class="project-type">Frontend / Next.js / Aplicação Web</p>
-              <p>
-                Participei do desenvolvimento frontend do Web Pet, uma plataforma web voltada à adoção
-                de animais e conexão com ONGs e protetores. A aplicação foi construída com Next.js,
-                React e TypeScript, integrando APIs para listagem de pets, autenticação e gerenciamento
-                de cadastros.
+              <p class="project-note" data-i18n="projects.vollopay.note">
+                Minha contribuição ficou concentrada em interfaces, formulários, autenticação relacionada
+                às telas e onboarding para Stripe Connect.
               </p>
-            </div>
-            <div class="project-detail-grid">
-              <div>
-                <h4>Frontend em equipe</h4>
-                <p>Atuação no frontend em projeto desenvolvido em equipe, com foco em componentização, interfaces responsivas e integração com APIs REST.</p>
-              </div>
-              <div>
-                <h4>Next.js App Router</h4>
-                <p>Organização da aplicação através da arquitetura moderna de rotas do Next.js para páginas públicas e áreas autenticadas.</p>
-              </div>
-              <div>
-                <h4>Integração com APIs</h4>
-                <p>Consumo do backend centralizado utilizando fetch, schemas Zod e autenticação Bearer nos fluxos de dados da aplicação.</p>
-              </div>
-              <div>
-                <h4>React Query</h4>
-                <p>Gerenciamento de dados de servidor, cache e invalidação após operações de criação, edição ou exclusão.</p>
-              </div>
-              <div>
-                <h4>Autenticação</h4>
-                <p>NextAuth.js com Credentials Provider, sessões JWT e proteção de rotas administrativas.</p>
-              </div>
-              <div>
-                <h4>Formulários</h4>
-                <p>React Hook Form integrado ao Zod para validação de dados nos fluxos de login, cadastro e gerenciamento.</p>
-              </div>
-              <div>
-                <h4>Filtros e paginação</h4>
-                <p>Sincronização de filtros e paginação com a URL utilizando nuqs, apoiando catálogo de pets, detalhes dos animais e listagens.</p>
-              </div>
-              <div>
-                <h4>UI e responsividade</h4>
-                <p>Tailwind CSS, Radix UI e componentes no padrão shadcn/ui para interfaces adaptadas a mobile e desktop.</p>
+              <div class="tag-row compact">
+                <span>Next.js</span>
+                <span>React</span>
+                <span>TypeScript</span>
+                <span>Tailwind CSS</span>
+                <span>Stripe Connect</span>
+                <span>Zod</span>
+                <span>React Hook Form</span>
               </div>
             </div>
-            <div class="tag-row">
-              <span>Next.js</span>
-              <span>React</span>
-              <span>TypeScript</span>
-              <span>Tailwind CSS</span>
-              <span>React Query</span>
-              <span>NextAuth.js</span>
-              <span>Zod</span>
-              <span>API REST</span>
-            </div>
-            <div class="project-actions">
-              <a class="button secondary" href="https://github.com/WebPetFabrica/web-pet-front" target="_blank" rel="noopener noreferrer">
-                <i data-lucide="code-2" aria-hidden="true"></i>
-                Ver no GitHub
+
+            <figure class="project-preview project-preview-contain project-preview-wide has-image"
+              data-preview-src="assets/projects/vollopay.png"
+              data-preview-alt="Screenshot da área de Configurações de pagamento do VolloPay."
+              data-i18n-preview-alt="projects.vollopay.previewAlt">
+              <img class="project-preview-image" src="assets/projects/vollopay.png"
+                alt="Screenshot da área de Configurações de pagamento do VolloPay."
+                data-i18n-alt="projects.vollopay.previewAlt" loading="lazy" decoding="async">
+              <button class="project-preview-link project-preview-button" type="button" data-project-lightbox-open
+                data-lightbox-src="assets/projects/vollopay.png" data-lightbox-title="VolloPay"
+                data-lightbox-alt="Screenshot da área de Configurações de pagamento do VolloPay."
+                data-i18n-lightbox-alt="projects.vollopay.previewAlt" aria-haspopup="dialog"
+                aria-controls="project-lightbox" aria-label="Ampliar preview do VolloPay"
+                data-i18n-aria-label="projects.vollopay.previewAria">
+                <span data-i18n="projects.previewOpen">Ampliar preview</span>
+              </button>
+            </figure>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card-content">
+              <div class="project-card-top">
+                <span data-i18n="projects.agro.category">Frontend / Interface Web</span>
+              </div>
+              <h3 data-i18n="projects.agro.name">Portal Agropecuário de Doação de Bezerros</h3>
+              <p data-i18n="projects.agro.description">
+                Protótipo frontend de uma plataforma agropecuária que conecta produtores de leite, 
+                produtores de carne, ONG e empresas parceiras em um fluxo de doação e adoção de bezerros 
+                com sistema de pontos e recompensas.
+              </p>
+              <p class="project-note" data-i18n="projects.agro.contribution">Minha contribuição:
+                desenvolvimento da interface do Produtor de Carne.</p>
+              <div class="tag-row compact">
+                <span>Frontend</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>UI</span>
+              </div>
+              <a class="text-link" href="https://github.com/brb193/producao" target="_blank" rel="noopener noreferrer">
+                <span data-i18n="projects.viewGithub">Ver no GitHub</span>
+                <i data-lucide="github" aria-hidden="true"></i>
               </a>
             </div>
-          </div>
 
-          <figure class="project-preview" data-preview-src="assets/projects/web-pet.png" data-preview-alt="Screenshot da aplicação Web Pet.">
-            <div class="project-preview-placeholder" role="img" aria-label="Screenshot pendente do projeto Web Pet. Substitua por assets/projects/web-pet.png.">
-              <span>Screenshot pendente</span>
-              <strong>assets/projects/web-pet.png</strong>
-              <small>Substitua este placeholder pelo print da aplicação.</small>
+            <figure class="project-preview project-preview-card project-preview-carousel" data-carousel-preview
+              data-gallery-sources="assets/projects/doacao-bezerros/produtor-carne-01.png|assets/projects/doacao-bezerros/produtor-carne-02.png|assets/projects/doacao-bezerros/produtor-carne-03.png|assets/projects/doacao-bezerros/visao-geral.png"
+              data-gallery-alt-keys="projects.agro.previewAlt1|projects.agro.previewAlt2|projects.agro.previewAlt3|projects.agro.previewAlt4"
+              data-gallery-caption-keys="projects.agro.caption1|projects.agro.caption2|projects.agro.caption3|projects.agro.caption4"
+              data-carousel-dot-label-key="projects.agro.dotAria">
+              <button class="project-carousel-image-button" type="button" data-project-lightbox-open
+                data-lightbox-title="Portal Agropecuário de Doação de Bezerros"
+                data-i18n-lightbox-title="projects.agro.name"
+                data-lightbox-sources="assets/projects/doacao-bezerros/produtor-carne-01.png|assets/projects/doacao-bezerros/produtor-carne-02.png|assets/projects/doacao-bezerros/produtor-carne-03.png|assets/projects/doacao-bezerros/visao-geral.png"
+                data-lightbox-alt-keys="projects.agro.previewAlt1|projects.agro.previewAlt2|projects.agro.previewAlt3|projects.agro.previewAlt4"
+                aria-label="Ampliar screenshot do Portal Agropecuário de Doação de Bezerros"
+                data-i18n-aria-label="projects.agro.previewAria" disabled>
+                <img class="project-preview-image project-carousel-image" alt="" data-carousel-image>
+              </button>
+              <button class="icon-button project-carousel-control project-carousel-prev" type="button"
+                data-carousel-prev aria-label="Screenshot anterior do Portal Agropecuário de Doação de Bezerros"
+                data-i18n-aria-label="projects.agro.previousAria" disabled>
+                <i data-lucide="chevron-left" aria-hidden="true"></i>
+              </button>
+              <button class="icon-button project-carousel-control project-carousel-next" type="button"
+                data-carousel-next aria-label="Próximo screenshot do Portal Agropecuário de Doação de Bezerros"
+                data-i18n-aria-label="projects.agro.nextAria" disabled>
+                <i data-lucide="chevron-right" aria-hidden="true"></i>
+              </button>
+              <figcaption class="project-carousel-caption" data-carousel-caption></figcaption>
+              <div class="project-carousel-dots" data-carousel-dots aria-label="Selecionar screenshot do projeto"
+                data-i18n-aria-label="projects.agro.dotsAria"></div>
+              <div class="project-preview-placeholder" role="img"
+                aria-label="Screenshots pendentes do Portal Agropecuário de Doação de Bezerros. Adicione assets/projects/doacao-bezerros/produtor-carne-01.png, assets/projects/doacao-bezerros/produtor-carne-02.png, assets/projects/doacao-bezerros/produtor-carne-03.png e assets/projects/doacao-bezerros/visao-geral.png."
+                data-i18n-aria-label="projects.agro.placeholderAria">
+                <span data-i18n="projects.placeholderPending">Screenshot pendente</span>
+                <strong>assets/projects/doacao-bezerros/produtor-carne-01.png</strong>
+                <small data-i18n="projects.agro.placeholderReplaceScreens">Adicione as quatro telas PNG para ativar o
+                  carrossel.</small>
+              </div>
+            </figure>
+          </article>
+
+          <article class="featured-project caminhodv-project reveal">
+            <div class="featured-project-layout">
+              <div class="featured-project-content">
+                <div class="project-label" data-i18n="projects.caminhodv.category">Aplicação Web</div>
+                <div class="featured-copy">
+                  <h3>CaminhoDV</h3>
+                  <p data-i18n="projects.caminhodv.description">
+                    Plataforma de gamificação turística preservada do portfólio existente, com foco em
+                    apresentar a ideia e direcionar para o repositório já referenciado.
+                  </p>
+                </div>
+                <div class="tag-row compact">
+                  <span>HTML5</span>
+                  <span>CSS3</span>
+                  <span>JavaScript</span>
+                  <span>LocalStorage</span>
+                  <span data-i18n="tag.responsiveDesign">Design responsivo</span>
+                </div>
+                <a class="text-link" href="https://github.com/brb193/caminhodv" target="_blank"
+                  rel="noopener noreferrer">
+                  <span data-i18n="projects.viewGithub">Ver no GitHub</span>
+                  <i data-lucide="github" aria-hidden="true"></i>
+                </a>
+              </div>
+
+              <figure class="project-preview portfolio-preview project-preview-contain has-image"
+                data-preview-src="assets/projects/caminhodv.png" data-preview-alt="Screenshot da aplicação CaminhoDV."
+                data-i18n-preview-alt="projects.caminhodv.previewAlt">
+                <img class="project-preview-image" src="assets/projects/caminhodv.png"
+                  alt="Screenshot da aplicação CaminhoDV." data-i18n-alt="projects.caminhodv.previewAlt" loading="lazy"
+                  decoding="async">
+                <a class="project-preview-link" href="https://caminhodv.vercel.app/" target="_blank"
+                  rel="noopener noreferrer" aria-label="Ver projeto CaminhoDV"
+                  data-i18n-aria-label="projects.caminhodv.viewAria">
+                  <span data-i18n="projects.viewProject">Ver projeto</span>
+                </a>
+              </figure>
             </div>
-          </figure>
+          </article>
         </div>
-      </article>
-
-      <p class="project-section-label other-projects-label reveal">Outros projetos</p>
-
-      <div class="project-grid">
-        <article class="project-card reveal">
-          <div class="project-card-content">
-            <div class="project-card-top">
-              <span>Aplicação Web</span>
-              <strong>Status: portfólio</strong>
-            </div>
-            <h3>Sistema de Gestão Leiteira</h3>
-            <p>
-              Projeto voltado à organização de processos e dados de gestão leiteira, preservado a
-              partir do portfólio atual e apresentado de forma conservadora.
-            </p>
-            <div class="tag-row compact">
-              <span>PHP</span>
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>Lógica de negócio</span>
-            </div>
-            <a class="text-link" href="https://github.com/brb193/producao" target="_blank" rel="noopener noreferrer">
-              Ver no GitHub
-              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-            </a>
-          </div>
-
-          <figure class="project-preview project-preview-card" data-preview-src="assets/projects/gestao-leiteira.png" data-preview-alt="Screenshot do Sistema de Gestão Leiteira.">
-            <div class="project-preview-placeholder" role="img" aria-label="Screenshot pendente do Sistema de Gestão Leiteira. Substitua por assets/projects/gestao-leiteira.png.">
-              <span>Screenshot pendente</span>
-              <strong>assets/projects/gestao-leiteira.png</strong>
-              <small>Substitua este placeholder pelo print da aplicação.</small>
-            </div>
-          </figure>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="project-card-content">
-            <div class="project-card-top">
-              <span>Plataforma</span>
-              <strong>Status: portfólio</strong>
-            </div>
-            <h3>CaminhoDV</h3>
-            <p>
-              Plataforma de gamificação turística preservada do portfólio existente, com foco em
-              apresentar a ideia e direcionar para o repositório já referenciado.
-            </p>
-            <div class="tag-row compact">
-              <span>Gamificação</span>
-              <span>Web</span>
-              <span>Experiência digital</span>
-            </div>
-            <a class="text-link" href="https://github.com/brb193/caminhodv" target="_blank" rel="noopener noreferrer">
-              Ver no GitHub
-              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-            </a>
-          </div>
-
-          <figure class="project-preview project-preview-card has-image" data-preview-src="assets/projects/caminhodv.png" data-preview-alt="Screenshot da aplicação CaminhoDV.">
-            <img class="project-preview-image" src="assets/projects/caminhodv.png" alt="Screenshot da aplicação CaminhoDV." loading="lazy" decoding="async">
-            <div class="project-preview-placeholder" role="img" aria-hidden="true" aria-label="Screenshot pendente do projeto CaminhoDV. Substitua por assets/projects/caminhodv.png.">
-              <span>Screenshot pendente</span>
-              <strong>assets/projects/caminhodv.png</strong>
-              <small>Substitua este placeholder pelo print da aplicação.</small>
-            </div>
-            <a class="project-preview-link" href="https://caminhodv.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Ver projeto CaminhoDV">
-              <span>Ver projeto</span>
-            </a>
-          </figure>
-        </article>
       </div>
     </section>
 
     <section class="education section-shell" id="formacao" aria-labelledby="formacao-title">
       <div class="section-heading reveal">
-        <p class="section-kicker">05 / Formação</p>
-        <h2 id="formacao-title">Formação acadêmica organizada por etapa.</h2>
+        <p class="section-kicker" data-i18n="education.kicker">05 / Formação</p>
+        <h2 id="formacao-title" data-i18n="education.title">Formação acadêmica organizada por etapa.</h2>
       </div>
 
       <div class="education-layout">
-        <article class="education-card education-card-primary reveal">
-          <span>Cursando</span>
-          <h3>Engenharia de Software</h3>
-          <p>UTFPR, Universidade Tecnológica Federal do Paraná</p>
-        </article>
         <article class="education-card reveal">
-          <span>Conclusão: 2021</span>
-          <h3>Instituto Colégio Embraer Juarez Wanderley</h3>
-          <p>Ensino Médio, São José dos Campos, SP</p>
+          <span data-i18n="education.highschool.status">2021</span>
+          <h3 data-i18n="education.highschool.title">Ensino Médio</h3>
+          <p data-i18n="education.highschool.institution">Colégio Embraer Juarez Wanderley</p>
+          <p data-i18n="education.highschool.location">São José dos Campos — SP</p>
+          <p data-i18n="education.highschool.completed">Conclusão: 2021</p>
+        </article>
+        <article class="education-card education-card-primary reveal">
+          <span data-i18n="education.software.status">Cursando</span>
+          <h3 data-i18n="education.software.title">Engenharia de Software</h3>
+          <p data-i18n="education.software.institution">UTFPR — Universidade Tecnológica Federal do Paraná</p>
+          <p data-i18n="education.software.expected">Previsão de conclusão: julho de 2027</p>
         </article>
       </div>
     </section>
 
     <section class="technologies section-shell" id="tecnologias" aria-labelledby="tecnologias-title">
       <div class="section-heading reveal">
-        <p class="section-kicker">06 / Tecnologias</p>
-        <h2 id="tecnologias-title">Competências organizadas pelo meu foco de atuação.</h2>
+        <p class="section-kicker" data-i18n="technologies.kicker">06 / Tecnologias</p>
+        <h2 id="tecnologias-title" data-i18n="technologies.title">Competências organizadas pelo meu foco de atuação.
+        </h2>
       </div>
 
       <div class="tech-groups">
@@ -643,7 +645,7 @@
             <span>Python</span>
             <span>Java</span>
             <span>PHP</span>
-            <span>APIs REST</span>
+            <span data-i18n="tag.restApis">APIs REST</span>
           </div>
         </article>
         <article class="tech-group reveal">
@@ -658,7 +660,7 @@
           </div>
         </article>
         <article class="tech-group reveal">
-          <h3>Banco de dados</h3>
+          <h3 data-i18n="technologies.database">Banco de dados</h3>
           <div class="tag-row">
             <span>SQL</span>
             <span>PostgreSQL</span>
@@ -666,22 +668,22 @@
           </div>
         </article>
         <article class="tech-group reveal">
-          <h3>Engenharia / Ferramentas</h3>
+          <h3 data-i18n="technologies.engineeringTools">Engenharia / Ferramentas</h3>
           <div class="tag-row">
             <span>Git</span>
             <span>GitHub</span>
-            <span>Testes</span>
+            <span data-i18n="tag.tests">Testes</span>
             <span>Docker</span>
-            <span>Integrações de APIs</span>
+            <span data-i18n="tag.apiIntegrations">Integrações de APIs</span>
           </div>
         </article>
         <article class="tech-group tech-group-secondary reveal">
-          <h3>Cloud & Observabilidade</h3>
+          <h3 data-i18n="technologies.cloudObservability">Cloud & Observabilidade</h3>
           <div class="tag-row">
             <span>AWS</span>
             <span>GCP</span>
             <span>Grafana</span>
-            <span>Monitoramento</span>
+            <span data-i18n="tag.monitoring">Monitoramento</span>
           </div>
         </article>
       </div>
@@ -689,15 +691,16 @@
 
     <section class="contact section-shell" id="contato" aria-labelledby="contato-title">
       <div class="contact-panel reveal">
-        <p class="section-kicker">07 / Contato</p>
-        <h2 id="contato-title">Vamos construir algo?</h2>
-        <p>
+        <p class="section-kicker" data-i18n="contact.kicker">07 / Contato</p>
+        <h2 id="contato-title" data-i18n="contact.title">Vamos construir algo?</h2>
+        <p data-i18n="contact.text">
           Estou aberto a oportunidades em desenvolvimento Backend e Full Stack, com interesse em
           APIs, integrações, bancos de dados e aplicações web. Minha vivência com Cloud e
           observabilidade entra como diferencial para pensar sistemas em produção.
         </p>
-        <div class="contact-actions" aria-label="Links de contato">
-          <a class="button primary" href="https://www.linkedin.com/in/victor-galv%C3%A3o193/" target="_blank" rel="noopener noreferrer">
+        <div class="contact-actions" aria-label="Links de contato" data-i18n-aria-label="contact.linksAria">
+          <a class="button primary" href="https://www.linkedin.com/in/victor-galv%C3%A3o193/" target="_blank"
+            rel="noopener noreferrer">
             <i data-lucide="briefcase" aria-hidden="true"></i>
             LinkedIn
           </a>
@@ -709,38 +712,43 @@
             <i data-lucide="message-circle" aria-hidden="true"></i>
             WhatsApp
           </a>
-          <button class="button ghost" type="button" data-resume-open aria-haspopup="dialog" aria-controls="resume-dialog">
+          <button class="button ghost" type="button" data-resume-open aria-haspopup="dialog"
+            aria-controls="resume-dialog">
             <i data-lucide="file-text" aria-hidden="true"></i>
-            Visualizar currículo
+            <span data-i18n="resume.view">Visualizar currículo</span>
           </button>
         </div>
       </div>
     </section>
   </main>
 
-  <dialog class="portfolio-dialog contact-dialog" id="contact-dialog" data-contact-dialog aria-labelledby="contact-dialog-title" aria-describedby="contact-dialog-description">
+  <dialog class="portfolio-dialog contact-dialog" id="contact-dialog" data-contact-dialog
+    aria-labelledby="contact-dialog-title" aria-describedby="contact-dialog-description">
     <div class="dialog-panel contact-dialog-panel">
       <header class="contact-dialog-top">
         <span class="contact-dialog-icon" aria-hidden="true">
           <i data-lucide="mail" aria-hidden="true"></i>
         </span>
-        <button class="icon-button" type="button" data-contact-close data-dialog-initial aria-label="Fechar contato">
+        <button class="icon-button" type="button" data-contact-close data-dialog-initial aria-label="Fechar contato"
+          data-i18n-aria-label="contactDialog.closeAria">
           <i data-lucide="x" aria-hidden="true"></i>
         </button>
       </header>
 
       <div class="contact-dialog-content">
-        <p class="section-kicker">Contato direto</p>
-        <h2 id="contact-dialog-title">Vamos conversar?</h2>
-        <p id="contact-dialog-description">Copie meu endereço para me enviar uma mensagem.</p>
+        <p class="section-kicker" data-i18n="contactDialog.kicker">Contato direto</p>
+        <h2 id="contact-dialog-title" data-i18n="contactDialog.title">Vamos conversar?</h2>
+        <p id="contact-dialog-description" data-i18n="contactDialog.description">Copie meu endereço para me enviar uma
+          mensagem.</p>
 
         <div class="contact-email-field">
-          <span class="contact-email-label">Meu e-mail</span>
+          <span class="contact-email-label" data-i18n="contactDialog.emailLabel">Meu e-mail</span>
           <div class="contact-email-row">
-            <a class="contact-email-link" href="mailto:vgalvao.work2@gmail.com" data-contact-email>vgalvao.work2@gmail.com</a>
+            <a class="contact-email-link" href="mailto:vgalvao.work2@gmail.com"
+              data-contact-email>vgalvao.work2@gmail.com</a>
             <button class="button primary contact-copy-button" type="button" data-copy-email="vgalvao.work2@gmail.com">
               <i data-lucide="copy" aria-hidden="true"></i>
-              <span data-copy-text>Copiar</span>
+              <span data-copy-text data-i18n="contactDialog.copy">Copiar</span>
             </button>
           </div>
           <p class="contact-copy-status" role="status" aria-live="polite" data-copy-status></p>
@@ -749,54 +757,80 @@
     </div>
   </dialog>
 
-  <dialog class="portfolio-dialog resume-dialog" id="resume-dialog" data-resume-dialog aria-labelledby="resume-dialog-title">
+  <dialog class="portfolio-dialog resume-dialog" id="resume-dialog" data-resume-dialog
+    aria-labelledby="resume-dialog-title">
     <div class="dialog-panel resume-dialog-panel">
       <header class="dialog-header">
         <div>
-          <p class="section-kicker">Currículo</p>
-          <h2 id="resume-dialog-title">Victor Galvão - CV</h2>
+          <p class="section-kicker" data-i18n="resume.dialogKicker">Currículo</p>
+          <h2 id="resume-dialog-title" data-i18n="resume.dialogTitle">Victor Galvão - CV</h2>
         </div>
-        <button class="icon-button" type="button" data-resume-close data-dialog-initial aria-label="Fechar visualização do currículo">
+        <button class="icon-button" type="button" data-resume-close data-dialog-initial
+          aria-label="Fechar visualização do currículo" data-i18n-aria-label="resume.closeAria">
           <i data-lucide="x" aria-hidden="true"></i>
         </button>
       </header>
-      <object class="resume-preview" data="curriculo-victor-galvao.pdf" type="application/pdf" aria-label="Pré-visualização do currículo de Victor Galvão">
+      <object class="resume-preview" data="curriculo-victor-galvao.pdf" type="application/pdf"
+        aria-label="Pré-visualização do currículo de Victor Galvão" data-i18n-aria-label="resume.previewAria">
         <div class="resume-fallback">
-          <p>Seu navegador não exibiu o PDF dentro da página.</p>
+          <p data-i18n="resume.fallbackText">Seu navegador não exibiu o PDF dentro da página.</p>
           <a class="button secondary" href="curriculo-victor-galvao.pdf" target="_blank" rel="noopener noreferrer">
             <i data-lucide="external-link" aria-hidden="true"></i>
-            Abrir PDF
+            <span data-i18n="resume.openPdf">Abrir PDF</span>
           </a>
         </div>
       </object>
       <div class="dialog-actions">
         <a class="button primary" href="curriculo-victor-galvao.pdf" download="Victor-Galvao-CV.pdf">
           <i data-lucide="download" aria-hidden="true"></i>
-          Baixar currículo
+          <span data-i18n="resume.download">Baixar currículo</span>
         </a>
-        <button class="button secondary" type="button" data-resume-close>Fechar</button>
+        <button class="button secondary" type="button" data-resume-close>
+          <span data-i18n="dialog.close">Fechar</span>
+        </button>
       </div>
     </div>
   </dialog>
 
-  <dialog class="portfolio-dialog project-lightbox" id="project-lightbox" data-project-lightbox aria-labelledby="project-lightbox-title">
+  <dialog class="portfolio-dialog project-lightbox" id="project-lightbox" data-project-lightbox
+    aria-labelledby="project-lightbox-title" aria-modal="true">
     <div class="dialog-panel project-lightbox-panel">
       <header class="dialog-header">
         <div>
-          <p class="section-kicker">Preview ampliado</p>
-          <h2 id="project-lightbox-title" data-project-lightbox-title>Preview do projeto</h2>
+          <p class="section-kicker" data-i18n="lightbox.kicker">Preview ampliado</p>
+          <h2 id="project-lightbox-title" data-project-lightbox-title data-i18n="lightbox.defaultTitle">Preview do
+            projeto</h2>
         </div>
-        <button class="icon-button" type="button" data-project-lightbox-close data-dialog-initial aria-label="Fechar preview ampliado">
+        <button class="icon-button" type="button" data-project-lightbox-close data-dialog-initial aria-label="Fechar"
+          data-i18n-aria-label="lightbox.closeAria">
           <i data-lucide="x" aria-hidden="true"></i>
         </button>
       </header>
-      <img class="project-lightbox-image" src="" alt="" data-project-lightbox-image>
+      <div class="project-lightbox-body">
+        <button class="icon-button project-lightbox-nav project-lightbox-prev" type="button" data-project-lightbox-prev
+          aria-label="Anterior" data-i18n-aria-label="lightbox.previous">
+          <i data-lucide="chevron-left" aria-hidden="true"></i>
+        </button>
+        <div class="project-lightbox-frame">
+          <img class="project-lightbox-image" src="" alt="" data-project-lightbox-image>
+        </div>
+        <button class="icon-button project-lightbox-nav project-lightbox-next" type="button" data-project-lightbox-next
+          aria-label="Próxima" data-i18n-aria-label="lightbox.next">
+          <i data-lucide="chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="project-lightbox-footer">
+        <p class="project-lightbox-counter" data-project-lightbox-counter aria-live="polite">Imagem 1 de 1</p>
+        <div class="project-lightbox-dots" data-project-lightbox-dots aria-label="Selecionar imagem"
+          data-i18n-aria-label="lightbox.dotsLabel"></div>
+      </div>
     </div>
   </dialog>
 
   <footer class="site-footer">
-    <p>© <span data-current-year></span> Victor Galvão. Desenvolvido com HTML, CSS e JavaScript.</p>
-    <a href="#inicio">Voltar ao início</a>
+    <p>© <span data-current-year></span> Victor Galvão. <span data-i18n="footer.builtWith">Desenvolvido com HTML, CSS e
+        JavaScript.</span></p>
+    <a href="#inicio" data-i18n="footer.backToTop">Voltar ao início</a>
   </footer>
 </body>
 
